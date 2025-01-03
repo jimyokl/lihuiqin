@@ -16,3 +16,12 @@ cd git-*
 sudo make prefix=/usr/local all
 sudo make prefix=/usr/local install
 
+############CentOS 上传代码到git
+https://blog.csdn.net/yangshiyan1991/article/details/128319304
+5. ssh-keygen
+进入/root/.ssh文件夹下，找到一个rsa.pub的文件，运行命令：vim rsa.pub将文件打开，复制文件中的所有内容。
+6. git中输入密匙, 将step5 中复制的密匙输入Git
+7. 生成Token
+8.
+
+#########
