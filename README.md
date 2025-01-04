@@ -1,5 +1,13 @@
-# lihuiqin
+# lihuiqin course videos
 bilibili.com/video/BV18p4y167Md
+
+#vscode ssh with rsa key, without passwd
+#blog.songjiahao.com/archives/262
+sudo vim /etc/ssh/sshd_config
+    Port 22
+    RSAAuthentication yes
+    PubkeyAuthentication yes
+
 
 
 sudo mv CentOS-*.repo backup/
