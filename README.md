@@ -3,13 +3,14 @@ bilibili.com/video/BV18p4y167Md
 
 #vscode ssh with rsa key, without passwd
 #blog.songjiahao.com/archives/262
+sudo chmod 600 authorized_keys
+sudo chmod 700 ~/.ssh
 sudo vim /etc/ssh/sshd_config
     Port 22
     RSAAuthentication yes
     PubkeyAuthentication yes
-
-
-
+    sudo service sshd restart
+#change repo    
 sudo mv CentOS-*.repo backup/
 sudo curl -o CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo
 sudo yum makecache
