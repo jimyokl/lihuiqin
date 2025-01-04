@@ -1,6 +1,30 @@
 # lihuiqin course videos
 bilibili.com/video/BV18p4y167Md
 
+#在github网页,头像-->设置里面添加ssh key
+ssh -T git@github.com
+The authenticity of host 'github.com (20.205.243.166)' can't be established.
+ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com,20.205.243.166' (ECDSA) to the list of known hosts.
+Hi jimyokl! You've successfully authenticated, but GitHub does not provide shell access.
+
+#新建repository后
+
+
+#在网页账户-->设置personal access token后
+  对于还没git init的client, 先init, 再把token直接添加远程仓库链接, git remote add origin
+  如果已经init, 则git remote set-url origin
+  #origin 为远程仓库地址的别名
+
+
+
+#配置提交代码后的提交人的个人信息
+#git config --global user.name "yan"
+git config --global user.email "yannetwork@qq.com"
+
+#
+
 #git config
 https://www.runoob.com/git/git-remote.html
 #关联远程仓库
