@@ -26,6 +26,8 @@ git commit -m " first time"
 git remote add origin https://。。。@github.com/jimyokl/lihuiqin.git 报错
 git remote set-url origin https://。。。@github.com/jimyokl/lihuiqin.git
 git push -u origin master 报错，25年自动创建的branch名叫main了
+git branch 
+    * main
 git push -u origin main
     Enumerating objects: 4, done.
     Counting objects: 100% (4/4), done.
