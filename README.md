@@ -1,15 +1,17 @@
 # lihuiqin course videos
 bilibili.com/video/BV18p4y167Md
 
-#在github网页,头像-->设置里面添加ssh key
-ssh -T git@github.com
-The authenticity of host 'github.com (20.205.243.166)' can't be established.
-ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added 'github.com,20.205.243.166' (ECDSA) to the list of known hosts.
-Hi jimyokl! You've successfully authenticated, but GitHub does not provide shell access.
-
-#新建repository后
+#1, 在网页新建repository
+#2, 在github网页,头像-->设置里面添加ssh key
+    ssh -T git@github.com
+    The authenticity of host 'github.com (20.205.243.166)' can't be established.
+    ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.
+    Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+    Warning: Permanently added 'github.com,20.205.243.166' (ECDSA) to the list of known hosts.
+    Hi jimyokl! You've successfully authenticated, but GitHub does not provide shell access.
+#然后可以把repository clone到本地client
+    能够发现在当前目录下多了一个.git的目录，这个目录是Git来跟踪管理版本库的，千万不要手动修改这个目录里面的文件，不然改乱了，就把Git仓库给破坏了。
+　  注意:Git会自动为我们创建唯一一个master分支
 
 
 #在网页账户-->设置personal access token后
