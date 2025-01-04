@@ -13,7 +13,7 @@ Hi jimyokl! You've successfully authenticated, but GitHub does not provide shell
 
 
 #在网页账户-->设置personal access token后
-  对于还没git init的client, 先init, 再把token直接添加远程仓库链接, git remote add origin
+  对于还没git init的client, 先init, 再把token直接添加远程仓库链接, git remote add origin, 如果不init直接add, 报错Stopping at filesystem boundary
   如果已经init, 则git remote set-url origin
   #origin 为远程仓库地址的别名
 
@@ -24,6 +24,11 @@ Hi jimyokl! You've successfully authenticated, but GitHub does not provide shell
 git config --global user.email "yannetwork@qq.com"
 
 #
+
+#stackoverflow.com/questions/18031946/when-doing-a-git-push-what-does-set-upstream-do
+git push -u origin <local-branch>
+    This automatically creates an upstream counterpart branch for any future push/pull attempts from teh current <local-branch>. The upstream remote branch derived from the branch name - <local-branch> is also configured as the default for all subsequent actions like push/pull etc.
+    For example, executing the above command for <local-branch> = test, will result in creating a <remote branch> = remotes/origin/test.
 
 #git config
 https://www.runoob.com/git/git-remote.html
