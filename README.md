@@ -1,6 +1,14 @@
 # lihuiqin course videos
 bilibili.com/video/BV18p4y167Md
 
+#git config
+https://www.runoob.com/git/git-remote.html
+#关联远程仓库
+$ git remote -v
+origin  https://github.com/tianqixin/runoob-git-test (fetch)
+origin  https://github.com/tianqixin/runoob-git-test (push)
+origin 为远程地址的别名。
+
 #vscode ssh with rsa key, without passwd
 #blog.songjiahao.com/archives/262
 sudo chmod 600 authorized_keys
