@@ -44,6 +44,12 @@ git push -u origin main
   如果已经init, 则git remote set-url origin
   #origin 为远程仓库地址的别名
 
+#查看状态，可以经常看
+git status
+On branch main
+Your branch is up to date with 'origin/main'.
+nothing to commit, working tree clean
+
 
 
 #配置提交代码后的提交人的个人信息
