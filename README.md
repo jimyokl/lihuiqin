@@ -25,10 +25,11 @@ git config --global user.email "yannetwork@qq.com"
 
 #
 
-#stackoverflow.com/questions/18031946/when-doing-a-git-push-what-does-set-upstream-do
+#stackoverflow.com/questions/18031946/when-doing-a-git-push-what-does-set-upstream-do, -u
 git push -u origin <local-branch>
     This automatically creates an upstream counterpart branch for any future push/pull attempts from teh current <local-branch>. The upstream remote branch derived from the branch name - <local-branch> is also configured as the default for all subsequent actions like push/pull etc.
     For example, executing the above command for <local-branch> = test, will result in creating a <remote branch> = remotes/origin/test.
+    #-u是指本地分支与远程仓库中的分支之间的流通道，建立流通道就是建立本地分支与远程分支的关联
 
 #git config
 https://www.runoob.com/git/git-remote.html
