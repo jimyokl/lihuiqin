@@ -1,5 +1,6 @@
 # lihuiqin course videos
 bilibili.com/video/BV18p4y167Md
+![image](https://github.com/jimyokl/lihuiqin/blob/main/media/bg2015120901.png)
 
 #1, 在网页新建repository
 #2, 在github网页,头像-->设置里面添加ssh key
