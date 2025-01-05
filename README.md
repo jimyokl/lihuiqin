@@ -5,40 +5,26 @@ bilibili.com/video/BV18p4y167Md
 #1, 在网页新建repository
 #2, 在github网页,头像-->设置里面添加ssh key
     ssh -T git@github.com
-    The authenticity of host 'github.com (20.205.243.166)' can't be established.
-    ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.
-    Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-    Warning: Permanently added 'github.com,20.205.243.166' (ECDSA) to the list of known hosts.
-    Hi jimyokl! You've successfully authenticated, but GitHub does not provide shell access.
+    The authenticity of host 'github.com (20.205.243.166)' can't be established.    ECDSA key fingerprint is SHA256:...    Are you sure you want to continue connecting (yes/no/[fingerprint])? yes      Warning: Permanently added 'github.com,20.205.243.166' (ECDSA) to the list of known hosts.    Hi jimyokl! You've successfully authenticated, but GitHub does not provide shell access.
 #然后可以把repository clone到本地client
 git init
     能够发现在当前目录下多了一个.git的目录，这个目录是Git来跟踪管理版本库的，千万不要手动修改这个目录里面的文件，不然改乱了，就把Git仓库给破坏了。
 　  注意:Git会自动为我们创建唯一一个master分支
 git clone https://github.com/jimyokl/lihuiqin.git
-    Cloning into 'lihuiqin'...
-    remote: Enumerating objects: 15, done.
-    remote: Counting objects: 100% (15/15), done.
-    remote: Compressing objects: 100% (10/10), done.
-    remote: Total 15 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
-    Receiving objects: 100% (15/15), 5.20 KiB | 1.04 MiB/s, done.
-    Resolving deltas: 100% (4/4), done.
-git add *
-git commit -m " first time"
+    Cloning into 'lihuiqin'...       remote: Enumerating objects: 15, done.      remote: Counting objects: 100% (15/15), done.
+    remote: Compressing objects: 100% (10/10), done.     remote: Total 15 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+    Receiving objects: 100% (15/15), 5.20 KiB | 1.04 MiB/s, done.      Resolving deltas: 100% (4/4), done.
+git add *, git commit -m " first time", 
 git remote add origin https://。。。@github.com/jimyokl/lihuiqin.git 报错
 git remote set-url origin https://。。。@github.com/jimyokl/lihuiqin.git
 git push -u origin master 报错，25年自动创建的branch名叫main了
 git branch 
     * main
 git push -u origin main
-    Enumerating objects: 4, done.
-    Counting objects: 100% (4/4), done.
-    Delta compression using up to 2 threads
-    Compressing objects: 100% (3/3), done.
-    Writing objects: 100% (3/3), 734 bytes | 45.00 KiB/s, done.
-    Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
-    To https://github.com/jimyokl/lihuiqin.git
-       a5efbbe..9a2c8bf  main -> main
-    branch 'main' set up to track 'origin/main'.
+    Enumerating objects: 4, done.     Counting objects: 100% (4/4), done.      Delta compression using up to 2 threads
+    Compressing objects: 100% (3/3), done.      Writing objects: 100% (3/3), 734 bytes | 45.00 KiB/s, done.
+    Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)      To https://github.com/jimyokl/lihuiqin.git
+       a5efbbe..9a2c8bf  main -> main          branch 'main' set up to track 'origin/main'.
 
 #在网页账户-->设置personal access token后
   对于还没git init的client, 先init, 再把token直接添加远程仓库链接, git remote add origin, 如果不init直接add, 报错Stopping at filesystem boundary
@@ -47,11 +33,16 @@ git push -u origin main
 
 #查看状态，可以经常看
 git status
-On branch main
-Your branch is up to date with 'origin/main'.
-nothing to commit, working tree clean
-
-
+    On branch main,  Your branch is up to date with 'origin/main'.   nothing to commit, working tree clean
+    Changes not staged for commit: deleted:    bg2015120901.png  	deleted:    git-command.jpg    	deleted:    media/toDel.c
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)	media/bg2015120901.png  	media/git-command.jpg
+git add .
+git status
+      Changes to be committed:     (use "git restore --staged <file>..." to unstage)
+  	    renamed:    bg2015120901.png -> media/bg2015120901.png
+	    renamed:    git-command.jpg -> media/git-command.jpg
+	    deleted:    media/toDel.c
 
 #配置提交代码后的提交人的个人信息
 #git config --global user.name "yan"
