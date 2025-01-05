@@ -17,8 +17,8 @@ bilibili.com/video/BV18p4y167Md
 
 #1, 在网页新建repository
 #2, 在github网页,头像-->设置里面添加ssh key
-#3install git
-#4配置提交代码后的提交人的个人信息
+#3 install git
+#4 配置提交代码后的提交人的个人信息
   #git config --global user.name "yan"
   git config --global user.email "yannetwork@qq.com"
     ssh -T git@github.com
@@ -35,7 +35,7 @@ git clone https://github.com/jimyokl/lihuiqin.git
     Receiving objects: 100% (15/15), 5.20 KiB | 1.04 MiB/s, done.      Resolving deltas: 100% (4/4), done.
 git add *, git commit -m " first time", 
 git remote add origin https://。。。@github.com/jimyokl/lihuiqin.git 报错
-git remote set-url origin https://。。。@github.com/jimyokl/lihuiqin.git
+git remote set-url origin https://。。。@github.com/jimyokl/lihuiqin.git //重设远端仓库地址,例如加token
 git push -u origin master 报错，25年自动创建的branch名叫main了
 git branch 
     * main
@@ -75,8 +75,6 @@ git push -u origin <local-branch>
     For example, executing the above command for <local-branch> = test, will result in creating a <remote branch> = remotes/origin/test.
     #-u是指本地分支与远程仓库中的分支之间的流通道，建立流通道就是建立本地分支与远程分支的关联
 
-#git config
-https://www.runoob.com/git/git-remote.html
 #关联远程仓库
 $ git remote -v
 origin  https://github.com/tianqixin/runoob-git-test (fetch)
