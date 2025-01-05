@@ -1,6 +1,19 @@
 # lihuiqin course videos
 bilibili.com/video/BV18p4y167Md
 ![image](https://github.com/jimyokl/lihuiqin/blob/main/media/bg2015120901.png)
+一、
+1. working directory的文件可能有以下几种状态：
+   未跟踪（Untracked）：新创建的文件，未被 Git 记录。
+   已修改（Modified）：已被 Git 跟踪的文件发生了更改，但这些更改还没有被提交到 Git 记录中。
+2. 暂存区Staging（Index） Area
+   暂存区，也称为索引（Index），是一个临时存储区域，用于保存即将提交到本地仓库的更改。你可以选择性地将工作目录中的更改添加到暂存区中，这样你可以一次 
+   提交多个文件的更改，而不必提交所有文件的更改。 git add <filename>或者git add .
+3. 本地仓库（Local Repository）
+   本地仓库是一个隐藏在 .git 目录中的数据库，用于存储项目的所有提交commit历史记录。
+二、
+  未跟踪(Untracked):新建文件；已跟踪(Tracked):git add将未跟踪的文件添加到暂存区,状态为tracked；已修改（Modified):更改已跟踪的文件后,这些更改会显 
+  示为已修改状态，但这些更改还未添加到暂存区;已暂存（Staged):git add 命令将修改过的文件添加到暂存区后，文件进入已暂存状态，等待提交。
+  ?git commit后的状态是什么？
 
 #1, 在网页新建repository
 #2, 在github网页,头像-->设置里面添加ssh key
@@ -10,6 +23,8 @@ bilibili.com/video/BV18p4y167Md
   git config --global user.email "yannetwork@qq.com"
     ssh -T git@github.com
     The authenticity of host 'github.com (20.205.243.166)' can't be established.    ECDSA key fingerprint is SHA256:...    Are you sure you want to continue connecting (yes/no/[fingerprint])? yes      Warning: Permanently added 'github.com,20.205.243.166' (ECDSA) to the list of known hosts.    Hi jimyokl! You've successfully authenticated, but GitHub does not provide shell access.
+    如果URL以`https://`开头，那么就是使用HTTP协议访问远程仓库；如果URL以`git@`开头，那么就是使用SSH协议访问远程仓库。
+    
 #然后可以把repository clone到本地client
 git init
     能够发现在当前目录下多了一个.git的目录，这个目录是Git来跟踪管理版本库的，千万不要手动修改这个目录里面的文件，不然改乱了，就把Git仓库给破坏了。
