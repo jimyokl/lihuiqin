@@ -4,6 +4,10 @@ bilibili.com/video/BV18p4y167Md
 
 #1, 在网页新建repository
 #2, 在github网页,头像-->设置里面添加ssh key
+#3install git
+#4配置提交代码后的提交人的个人信息
+  #git config --global user.name "yan"
+  git config --global user.email "yannetwork@qq.com"
     ssh -T git@github.com
     The authenticity of host 'github.com (20.205.243.166)' can't be established.    ECDSA key fingerprint is SHA256:...    Are you sure you want to continue connecting (yes/no/[fingerprint])? yes      Warning: Permanently added 'github.com,20.205.243.166' (ECDSA) to the list of known hosts.    Hi jimyokl! You've successfully authenticated, but GitHub does not provide shell access.
 #然后可以把repository clone到本地client
@@ -47,13 +51,8 @@ git commit -m "mv files to media folder"
     3 files changed, 1 deletion(-)
         rename bg2015120901.png => media/bg2015120901.png (100%) ,        rename git-command.jpg => media/git-command.jpg (100%)
         delete mode 100644 media/toDel.c
-
-
-#配置提交代码后的提交人的个人信息
-#git config --global user.name "yan"
-git config --global user.email "yannetwork@qq.com"
-
-#
+#git pull 需要设置 pull.rebase=false
+  cnblogs.com/wangiqngpei557/p/6056624.html, juejin.cn/post/6844903895160881166讲得不错
 
 #stackoverflow.com/questions/18031946/when-doing-a-git-push-what-does-set-upstream-do, -u
 git push -u origin <local-branch>
