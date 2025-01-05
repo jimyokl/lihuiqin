@@ -43,6 +43,11 @@ git status
   	    renamed:    bg2015120901.png -> media/bg2015120901.png
 	    renamed:    git-command.jpg -> media/git-command.jpg
 	    deleted:    media/toDel.c
+git commit -m "mv files to media folder"
+    3 files changed, 1 deletion(-)
+        rename bg2015120901.png => media/bg2015120901.png (100%) ,        rename git-command.jpg => media/git-command.jpg (100%)
+        delete mode 100644 media/toDel.c
+
 
 #配置提交代码后的提交人的个人信息
 #git config --global user.name "yan"
