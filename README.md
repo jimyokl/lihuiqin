@@ -70,7 +70,7 @@ git commit -m "mv files to media folder"
   cnblogs.com/wangiqngpei557/p/6056624.html, juejin.cn/post/6844903895160881166讲得不错
 
 #stackoverflow.com/questions/18031946/when-doing-a-git-push-what-does-set-upstream-do, -u
-git push -u origin <local-branch>
+git push -u origin <local-branch> //-u(upstream)
     This automatically creates an upstream counterpart branch for any future push/pull attempts from teh current <local-branch>. The upstream remote branch derived from the branch name - <local-branch> is also configured as the default for all subsequent actions like push/pull etc.
     For example, executing the above command for <local-branch> = test, will result in creating a <remote branch> = remotes/origin/test.
     #-u是指本地分支与远程仓库中的分支之间的流通道，建立流通道就是建立本地分支与远程分支的关联
