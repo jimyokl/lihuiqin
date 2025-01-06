@@ -32,6 +32,7 @@ proprocess预处理,处理编译之前#号相关的,主要处理#include、#defi
 make hello
 cc     hello.c   -o hello //cc是预定义好的一个名字,cc默认是gcc的一个符号链接,指向gcc
   //如果make hello.c,会去找hello.c.c，不存在
+
 */
 
 int main(void) {
