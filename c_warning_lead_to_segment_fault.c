@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
-#include <string.h>
+//#include <string.h>
 int main()
 {
     FILE *fp = NULL;
     fp = fopen("tmp", "r"); //当前目录下没有tmp文件，只读模式下要求文件一定存在, fopen肯定会失败，返回NULL
     if(fp == NULL){ //fopen返回值是FILE *, 失败返回NULL，设定errorno
         //strerror(errno); //由于用到了errno, 需要包含errno.h头文件
-        fprintf(stderr, "fopen failed: %s\n", strerror(errno)); //strerror(errno)返回char*字符串错误信息
+        fprintf(stderr, "fopen failed on Boox: %s\n", strerror(errno)); //strerror(errno)返回char*字符串错误信息
         //perror("fopen failed");
         exit(1);
     }
