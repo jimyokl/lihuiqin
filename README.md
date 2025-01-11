@@ -1,7 +1,7 @@
 # lihuiqin course videos
 bilibili.com/video/BV18p4y167Md
 
-video4: main is a thread too
+video4: main is a thread too,  
 
 7.函数 8.构造类型 9.动态内存管理 10.调试工具和技巧gdb,make 11.常用库函数
 ![image](https://github.com/jimyokl/lihuiqin/blob/main/media/bg2015120901.png)
