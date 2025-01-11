@@ -2,6 +2,9 @@
 bilibili.com/video/BV18p4y167Md
 
 video4: main is a thread too, 对应的源代码是d_hello.c
+        #if 0
+	#endif
+        #if 0和#endif也可以拿来用作大段的注释，#后的代码在预处理阶段就已经完成了，所以到后面编译的时候，这些就是注释了
 
 7.函数 8.构造类型 9.动态内存管理 10.调试工具和技巧gdb,make 11.常用库函数
 ![image](https://github.com/jimyokl/lihuiqin/blob/main/media/bg2015120901.png)
