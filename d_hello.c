@@ -36,9 +36,14 @@ cc     hello.c   -o hello //cc是预定义好的一个名字,cc默认是gcc的�
 */
 
 int main(void) {
-	printf("Hello, world!\n");
+	printf("Hello, world! this is for video 4.\n");
     //	exit(0);
     //  return 0;    
     //printf("This line will not be executed.\n")
 }
+#if 0
+i
+can
+annotate
+#endif
 
