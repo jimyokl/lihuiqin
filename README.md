@@ -1,6 +1,8 @@
 # lihuiqin course videos
 bilibili.com/video/BV18p4y167Md
 
+别人的笔记: github.com/impact-eintr/LinuxC/blob/main/C/README.md
+其他自己的笔记在note文件夹里面
 video4: 
   1. main is a thread too,多线程并发,如果事先结束这个线程,程序还能跑, 对应的源代码是d_hello.c
 	 内核对于进程/线程不能区别，只知道进程
