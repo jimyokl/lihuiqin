@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 int main() 
 {
     // calculate size of int
@@ -52,7 +53,23 @@ int main()
     printf("ASCII code of 065 and 091: %c, %c\n", 65, 90); // 26 letters A-Z
     printf("ASCII code of 097 and 122: %c, %c\n", 97, 122); // 26 letters a-z
 
+   float i_f = 3.4;
+   int i_i = 0;
+   i_i = (int)i_f;
+   printf("3.4 after convert to integer: %d\n", i_i);
 
+   bool a = false;
+   printf("bool data a: %d\n", a);
+   
+   int test_f = 3.14;
+   float minus_f = i_f - test_f;
+   if(minus_f < 0.000001)
+   {
+   	printf("minus_f is around 0\n");
+   }
+   else 
+   	printf("minus_f is not around 0\n");
+	   
     return 0;
 }
 
