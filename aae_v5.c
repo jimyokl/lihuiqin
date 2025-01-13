@@ -43,6 +43,16 @@ int main()
     !: 33,  ": 34,  #: 35,  $: 36,  %:37,  &:38,   ':39,   (:40
 */
 
+    // print ascii code of number 0 and 9
+    printf("ASCII code of 0 and 9: %d and %d.\n", '0', '9');
+
+
+    // print ascii code 048
+    printf("ASCII code of 048 and 057: %c, %c\n", 48, 57);
+    printf("ASCII code of 065 and 091: %c, %c\n", 65, 90); // 26 letters A-Z
+    printf("ASCII code of 097 and 122: %c, %c\n", 97, 122); // 26 letters a-z
+
+
     return 0;
 }
 

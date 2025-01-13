@@ -22,3 +22,12 @@ video 5:
 c标准规定: int比char占用的字节数多,int比float占用的字节数少
 ![image](https://github.com/jimyokl/lihuiqin/blob/main/media/float%E6%B5%AE%E7%82%B9%E6%95%B0%E5%86%85%E5%AD%98%E5%AD%98%E6%94%BE.png)
 0.000789-> 0.789(存为小于1的数) *10^-3, 浮点数, 0.789是尾数, -3是指数, 例如32位, 1位符号位, 然后是8位存指数位, 接着23位存尾数位
+
+ascii code:
+空字符 '\0', ascii码为000,
+'\0'一般放在字符串的结束处，用来表示字符串的结束，其是ascii值为0的字符的转义
+strlen()计算长度时不考虑末尾的'\0'
+
+char和unsigned char
+
+转换有精度损失
