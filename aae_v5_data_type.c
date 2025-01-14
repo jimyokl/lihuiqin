@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdlib.h> // abs, for int
 #include <math.h> // fabs, for double ，float
+
 int main() 
 {
     // calculate size of int
@@ -60,8 +61,8 @@ int main()
    i_i = (int)i_f;
    printf("3.4 after convert to integer: %d\n", i_i);
 
-   bool a = false;
-   printf("bool data a: %d\n", a);
+   bool a_bool = false;
+   printf("bool data a: %d\n", a_bool);
    
    int test_f = 3.4;
    float minus_f = i_f - test_f;
@@ -84,5 +85,6 @@ int main()
     unsigned int int_max_u = 4294967295;
     printf("int_max_u = %d\n", int_max_u); //输出 -1, gcc 没有warning
 
-    return 0;
+    return 0;  // exit(0);更好
 }
+
