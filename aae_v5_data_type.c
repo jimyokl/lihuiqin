@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdlib.h> // abs, for int
+#include <math.h> // fabs, for double ，float
 int main() 
 {
     // calculate size of int
@@ -61,16 +63,26 @@ int main()
    bool a = false;
    printf("bool data a: %d\n", a);
    
-   int test_f = 3.14;
+   int test_f = 3.4;
    float minus_f = i_f - test_f;
-   if(minus_f < 0.000001)
+   printf("float minus_f = i_f - test_f: %f\n", minus_f);  // output is 0.400000
+
+// below output is: minus_f is not around 0
+   if( fabs(minus_f-0) < 1e-6)
+// if( abs(minus_f-0) < 0.000001)
    {
    	printf("minus_f is around 0\n");
    }
    else 
    	printf("minus_f is not around 0\n");
-	   
+
+    int int_max = 2147483647; 
+    int_max = int_max + 1; //输出-2147483648
+    printf("int_max = %d\n", int_max);
+
+    //数据类型与后续代码中所使用的输入输出要相匹配, otherwise, 会溢出
+    unsigned int int_max_u = 4294967295;
+    printf("int_max_u = %d\n", int_max_u); //输出 -1, gcc 没有warning
+
     return 0;
 }
-
-

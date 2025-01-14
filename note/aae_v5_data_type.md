@@ -28,16 +28,24 @@ ascii code:
 '\0'一般放在字符串的结束处，用来表示字符串的结束，其是ascii值为0的字符的转义
 strlen()计算长度时不考虑末尾的'\0'
 
-char和unsigned char
+特殊性:
+ 3). char类型数据,是否有符号,是未定义的行为,char和unsigned char
 
-转换有精度损失
+ 转换有精度损失
     convert longer number to shorter, lost accuracy
     implicit conversion: two different types of data add/minus/muliple/, auto convert the result 
     explicit conversion: int a; float b = (float) a;
-bool:
+ 1). bool:
     logical type
-float:
+ 2). float:
     float number eg 1.5 is not a precise number
     eg: (1/3)*3 !=1, because 1/3 = 0.333..., then 1/3*3 = 0.999...
     how to get to know if a float number is 0, to make use of |f| if smaller than 10^-6
-
+    ?去网上查查怎么比较,去copy别人的程序
+ 4). 不同形式的0值
+   0
+   '0'
+   "0"
+   '\0', 相当于NULL吗？
+ 5). 数据类型与后续代码中所使用的输入输出要相匹配
+  int num = 2147483647; num = num + 1; 输出-2147483648
