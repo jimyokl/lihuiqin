@@ -18,6 +18,11 @@ int main()
     int i = 5, j = 3;
     printf("MAX(i,j) = %d\n", MAX(i,j));  // i>j?i:j
 
+    // to del 三目条件运算符（conditional ternary operator）
+    int toDel = 0;
+    toDel = i>j?i:j;
+    printf("toDel =  %d (i>j?i:j, i5 j3)\n", toDel);
+
     return 0;  // exit(0);更好
 }
 
