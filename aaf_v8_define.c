@@ -2,9 +2,19 @@
 #define PI 3.1415926
 #define ADD 2+3
 //#define MAX(a,b) ((a)>(b)?(a):(b))  // 用括号括起来,防止出现问题
-#define MAX(a,b)  a>b?a:b             // (a>b?a:b) is better
+#define MAX(a,b)  a>b?a:b             // (a>b?a:b) is better, 带参的宏定义
+#define MAX2(a,b)  \
+            {int A=a,B=b; ((A) > (B) ? (A) : (B));}
 
-/* ------------------------------part 1 constant------------------------------ */
+/* ------------------------------part 1 define------------------------------ */
+
+#if 0
+int max(int a, int b) // 用函数代替宏定义,更安全,速度慢一点点
+{
+    return a>b?a:b;
+}
+#endif
+
 int main() 
 {
     // define π to calculate the square of a circle
@@ -17,6 +27,10 @@ int main()
 
     int i = 5, j = 3;
     printf("MAX(i,j) = %d\n", MAX(i,j));  // i>j?i:j
+
+    printf("before running MAX(i++,j++), i = %d\tj = %d\n",i,j);
+    printf("MAX(i++,j++) = %d\n", MAX(i++,j++));  // i>j?i:j
+    printf("after running MAX(i++,j++), i = %d\tj = %d\n",i,j);
 
     // to del 三目条件运算符（conditional ternary operator）
     int toDel = 0;
