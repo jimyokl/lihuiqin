@@ -5,7 +5,13 @@
 #define MAX(a,b)  (a)>(b)?(a):(b)             // (a>b?a:b) is better, 带参的宏定义
 #define MAX2(a,b)  \
             ( {int A=(a),B=(b); ((A) > (B) ? (A) : (B));} )
-            //{int A=(a),B=(b); ((A) > (B) ? (A) : (B));} // error: expected expression before ‘{’ token             
+            //{int A=(a),B=(b); ((A) > (B) ? (A) : (B));} // error: expected expression before ‘{’ token
+                                                          //宏再最外层应该用括号包起来
+            // 要实现比较a和b的功能,用A和B接收a和b,再比较A和B,不自增了
+            //{}是一个语句块,返回最后一条语句的值, {}可以看做是一个作用域
+            //此define用法不是标准c语法, gcc -std=c99 -pedantic-errors 会报错,
+            //ISO C forbids braced-groups within expressions [-Wpedantic]
+            //( {typeof(a) A=(a),B=(b); ((A) > (B) ? (A) : (B));} ),用typeof(a)定义A的类型,适用任意类型
 
 /* ------------------------------part 1 define------------------------------ */
 
@@ -46,6 +52,11 @@ int main()
     int toDel = 0;
     toDel = i>j?i:j;
     printf("toDel =  %d (i>j?i:j, i5 j3)\n", toDel);
+
+    PI = 3.14;  // 赋值运算的左操作数必须是左值
+    //1当编译器遇到一个右值表达式时，它通常不会为其分配内存，而是将其计算结果存储在寄存器或栈上。
+    //1由于右值在内存中没有固定的位置，所以不能用作赋值表达式的左侧。
+    //2左值(lvalue, locator value) 表示了一个占据内存中某个可识别的位置（也就是一个地址）的对象。
 
     return 0;  // exit(0);更好
 }
