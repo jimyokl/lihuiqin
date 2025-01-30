@@ -1,4 +1,6 @@
 
+![image](https://github.com/jimyokl/lihuiqin/blob/main/media/%E8%BF%90%E8%A1%8C%E4%B8%AD%E7%9A%84C%E8%AF%AD%E8%A8%80%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80.png)
+
 [存储类型] 数据类型 标识符 =   值
             TYPE    NAME = VALUE
 
