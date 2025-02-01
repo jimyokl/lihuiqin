@@ -47,15 +47,17 @@ video4:
     
 #然后可以把repository clone到本地client
 git init
-    能够发现在当前目录下多了一个.git的目录，这个目录是Git来跟踪管理版本库的，千万不要手动修改这个目录里面的文件，不然改乱了，就把Git仓库给破坏了。
+    在当前目录下多了一个.git的目录，这个目录是Git来跟踪管理版本库的，不要修改里面的文件,会破坏Git仓库
 　  注意:Git会自动为我们创建唯一一个master分支
 git clone https://github.com/jimyokl/lihuiqin.git
-    Cloning into 'lihuiqin'...       remote: Enumerating objects: 15, done.      remote: Counting objects: 100% (15/15), done.
+    Cloning into 'lihuiqin'...  remote: Enumerating objects: 15, done. remote: Counting objects: 100% (15/15), done.
     remote: Compressing objects: 100% (10/10), done.     remote: Total 15 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
     Receiving objects: 100% (15/15), 5.20 KiB | 1.04 MiB/s, done.      Resolving deltas: 100% (4/4), done.
-git add *, git commit -m " first time", 
 git remote add origin https://。。。@github.com/jimyokl/lihuiqin.git 报错
+#在网页账户-->设置personal access token后
 git remote set-url origin https://。。。@github.com/jimyokl/lihuiqin.git //重设远端仓库地址,例如加token
+
+git add *, git commit -m " first time", 
 git push -u origin master 报错，25年自动创建的branch名叫main了
 git branch 
     * main
@@ -65,10 +67,9 @@ git push -u origin main
     Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)      To https://github.com/jimyokl/lihuiqin.git
        a5efbbe..9a2c8bf  main -> main          branch 'main' set up to track 'origin/main'.
 
-#在网页账户-->设置personal access token后
-  对于还没git init的client, 先init, 再把token直接添加远程仓库链接, git remote add origin, 如果不init直接add, 报错Stopping at filesystem boundary
-  如果已经init, 则git remote set-url origin
-  #origin 为远程仓库地址的别名
+  先init,然后就可以clone,然后就可以git remote set-url origin,把token直接添加远程仓库链接,
+  #origin 为远程仓库地址的别名 
+  //这里可能有错: "git remote add origin"是没有clone时,如果不init直接add, 报错Stopping at filesystem boundary
 
 #查看状态，可以经常看
 git status
