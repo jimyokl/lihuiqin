@@ -87,8 +87,18 @@ git commit -m "mv files to media folder"
     3 files changed, 1 deletion(-)
         rename bg2015120901.png => media/bg2015120901.png (100%) ,        rename git-command.jpg => media/git-command.jpg (100%)
         delete mode 100644 media/toDel.c
-#git pull 需要设置 pull.rebase=false
-  cnblogs.com/wangiqngpei557/p/6056624.html, juejin.cn/post/6844903895160881166讲得不错
+#git pull 需要设置 git config --global --add pull.rebase true
+  -juejin.cn/post/6844903895160881166
+  -执行 git pull --rebase 的时候必须保持本地目录干净
+  --就是因为本地有文件改动尚未提交造成的。此时有两种做法：
+  --如果本次修改已经完成，则可以先提交（commit）一下
+  --如果本次修改尚未完成，则可以先贮藏：git stash
+  -cnblogs.com/cx850116/p/17424341.html
+  --当本地有未提交的代码时，使用git pull --rebase会报错
+  -这个命令做了以下内容：
+  --a.把你 commit 到本地仓库的内容，取出来放到暂存区(stash)（这时你的工作区是干净的）
+  --b.然后从远端拉取代码到本地，由于工作区是干净的，所以不会有冲突
+  --c.从暂存区把你之前提交的内容取出来，跟拉下来的代码合并
 
 #stackoverflow.com/questions/18031946/when-doing-a-git-push-what-does-set-upstream-do, -u
 git push -u origin <local-branch> //-u(upstream)
