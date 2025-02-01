@@ -87,6 +87,8 @@ git commit -m "mv files to media folder"
     3 files changed, 1 deletion(-)
         rename bg2015120901.png => media/bg2015120901.png (100%) ,        rename git-command.jpg => media/git-command.jpg (100%)
         delete mode 100644 media/toDel.c
+
+![image](https://github.com/jimyokl/lihuiqin/blob/main/media/aaf_git-stash.png)
 #git pull 需要设置 git config --global --add pull.rebase true
   -juejin.cn/post/6844903895160881166
   -执行 git pull --rebase 的时候必须保持本地目录干净
