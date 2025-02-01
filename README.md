@@ -115,7 +115,7 @@ origin  https://github.com/tianqixin/runoob-git-test (push)
 origin 为远程地址的别名。
 
 #vscode ssh with rsa key, without passwd
-# zhuanlan.zhihu.com/p/222452460;blog.songjiahao.com/archives/262
+-zhuanlan.zhihu.com/p/222452460;blog.songjiahao.com/archives/262
 把本地公钥上传到远程机器,在远程机器上,用公钥生成authorized_keys,
 cd ~/.ssh; cat vscode所在机器.pub(公钥) >> authorized_keys
 sudo chmod 600 authorized_keys
