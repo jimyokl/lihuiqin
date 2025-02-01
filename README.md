@@ -36,7 +36,7 @@ video4:
 
 #1, 在网页新建repository
 #2, 在github网页,头像-->设置里面添加ssh key
-   ssh-keygen -t ed25519 -C "jimyshow@hotmail.com"
+   ssh-keygen -t ed25519 -C "jimyshow@hotmail.com",把pub key复制到github网页.
 #3 install git
 #4 配置提交代码后的提交人的个人信息
   #git config --global user.name "yan"
@@ -103,7 +103,9 @@ origin  https://github.com/tianqixin/runoob-git-test (push)
 origin 为远程地址的别名。
 
 #vscode ssh with rsa key, without passwd
-#blog.songjiahao.com/archives/262
+# zhuanlan.zhihu.com/p/222452460;blog.songjiahao.com/archives/262
+把本地公钥上传到远程机器,在远程机器上,用公钥生成authorized_keys,
+cd ~/.ssh; cat vscode所在机器.pub(公钥) >> authorized_keys
 sudo chmod 600 authorized_keys
 sudo chmod 700 ~/.ssh
 sudo vim /etc/ssh/sshd_config
@@ -111,11 +113,14 @@ sudo vim /etc/ssh/sshd_config
     RSAAuthentication yes
     PubkeyAuthentication yes
     sudo service sshd restart
-#change repo    
+#########
+代码自动补全: fittencode
+#change repo
 sudo mv CentOS-*.repo backup/
 sudo curl -o CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo
 sudo yum makecache
 
+#安装其他软件，例如git
 sudo yum groupinstall "Development Tools"
 sudo yum install curl-devel expat-devel gettext-devel openssl-devel  perl-CPAN perl-devel zlib-devel
 
@@ -125,11 +130,3 @@ sudo tar -xf git.tar.gz
 cd git-*
 sudo make prefix=/usr/local all
 sudo make prefix=/usr/local install
-
-############CentOS 上传代码到git
-https://blog.csdn.net/yangshiyan1991/article/details/128319304
-5. ssh-keygen: 进入/root/.ssh文件夹下，找到一个rsa.pub的文件，运行命令：vim rsa.pub将文件打开，复制文件中的所有内容。
-6. git中输入密匙, 将step5 中复制的密匙输入Git    7. 生成Token   8.
-
-#########
-代码自动补全: fittencode
