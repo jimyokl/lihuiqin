@@ -36,6 +36,7 @@ video4:
 
 #1, 在网页新建repository
 #2, 在github网页,头像-->设置里面添加ssh key
+   ssh-keygen -t ed25519 -C "jimyshow@hotmail.com"
 #3 install git
 #4 配置提交代码后的提交人的个人信息
   #git config --global user.name "yan"
