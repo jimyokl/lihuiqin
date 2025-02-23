@@ -15,14 +15,18 @@ void print_star(void)
         printf("*");
     }
     printf("\n");
+    //printf("[func name: %s], i = %d\n", __func__, i);
+    printf("[func name: %s], i = %d\n", __FUNCTION__, i);
 }
 
 int main()
 {
-    //for (int i = 0; i < 5; i++)
+    //for (int i = 0; i < 5; i++), 这样的可以打印5行星号
     for ( i = 0; i < 5; i++)
     {
         print_star();//第一次调用后,i会变为5
+        printf("[func name: %s], i = %d\n", __func__, i);
     }
+    printf("out of main for loop, [func name: %s], i = %d\n", __func__, i);
     exit(0);
 }
