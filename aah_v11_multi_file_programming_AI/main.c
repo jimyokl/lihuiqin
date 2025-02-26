@@ -16,10 +16,12 @@
 
 //编译多个文件：使用 gcc 编译多个源文件时，需要将所有文件一起编译。
 
+static int i = 11;
+
 int main() {
     // 访问全局变量
     printf("now in function: [%s], ", __func__);
-    printf("Initial globalVar: %d\n", globalVar);
+    printf("Initial globalVar: %d, static global var in main i=%d.\n", globalVar, i);
 
     // 调用函数
     incrementGlobalVar();
