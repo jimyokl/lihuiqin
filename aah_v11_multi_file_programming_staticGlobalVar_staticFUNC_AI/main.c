@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "func.h" // 包含头文件
-
-//main.c 通过包含 utils.h，能够访问 utils.c 中的全局变量和函数。
+#include <stdlib.h>
+//main.c 通过包含 func.h，能够访问 func.c 中的全局变量和函数。
 //通过使用头文件和 extern 关键字，我们可以在不同源文件之间共享全局变量和函数。
 //每个源文件中的定义和声明都起着重要的作用，确保链接器能够正确识别符号。
 //模块化的编程方式有助于组织大型项目，提高代码的可读性和可维护性。
@@ -18,10 +18,12 @@
 
 static int i = 11;
 
+int globalVar_2 = 22;
+
 int main() {
     // 访问全局变量
-    printf("now in function: [%s], ", __func__);
-    printf("Initial globalVar: %d, static global var in main i=%d.\n", globalVar, i);
+    printf("now in function: [%s]\n", __func__);
+    printf("        Initial globalVar: %d, static global var in main i=%d.\n", globalVar, i);
 
     // 调用函数
     incrementGlobalVar();
@@ -31,5 +33,10 @@ int main() {
     incrementGlobalVar();
     printGlobalVar();
 
-    return 0;
+    // static_func();
+    call_static_func();
+
+    print_extern_globalVar_2_in_main();
+
+    exit(0);
 }
