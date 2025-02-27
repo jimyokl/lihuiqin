@@ -43,7 +43,7 @@ int main()
     printf("value = %d\n",value);
 
 // 2 ---------------------------------关系运算符 (Relational Operators)--------------------------------
-    printf("\n关系运算符: value of i>j: %d.\n", i>j);
+    printf("\n关系运算符: value of i>j: %d.\n", i>j); //i值为1，j值为10,line 40
 
 
 // 3 ---------------------------------逻辑运算符 (Logical Operators)--------------------------------
