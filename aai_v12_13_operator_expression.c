@@ -44,20 +44,31 @@ int main()
 
 // 2 ---------------------------------关系运算符 (Relational Operators)--------------------------------
     printf("\n关系运算符: value of i>j: %d.\n", i>j); //i值为1，j值为10,line 40
+    printf("i=1,j=10, value of i < j: %d \n", i<j); //i值为1，j值为10,line 40
+    printf("i=1,j=10, value of i!= j: %d \n", i!=j); //i值为1，j值为10,line 40
+// 3.1 ---------------------------------逻辑运算符 (Logical Operators)--------------------------------
+    printf("\n逻辑运算符: j=10, value of !j: %d.\n", !j); //j值为10
+    printf("value of !0: %d \n", !0); //
+// 3.2 ---------------------------------逻辑与或的短路特性 (Logical Operators)--------------------------------
+    int aa = 1, bb = 2, cc=3, dd=4;
+    int ii=1, jj=1;
+    int kk = (ii=aa>bb)&&(jj=cc>dd);//与运算符，左边为假，右边不执行,所以ii值改为0，jj值不变
+    kk++;
+    printf("ii=%d, jj=%d\n", ii, jj);//jj值还是1
+
+    int kk2 = (ii=aa<bb)||(jj=cc>dd);//或运算符，左边为真，右边不执行,所以ii值改为1，jj值不变
+    kk2++;
+    printf("ii=%d, jj=%d\n", ii, jj);//jj值还是1
+
+    int kk3 = (ii=aa>bb)||(jj=cc>dd);//或运算符，左边为假，右边执行,所以ii值改为0，jj值也改为0
+    printf("kk3=(ii=aa>bb)||(jj=cc>dd), aa=%d, bb=%d, cc=%d, dd=%d, kk3=%d\n", aa, bb, cc, dd, kk3);
+    printf("Logical OR result: ii=%d, jj=%d\n", ii, jj);//jj值变为0
 
 
-// 3 ---------------------------------逻辑运算符 (Logical Operators)--------------------------------
-
-// 3 ---------------------------------逻辑运算符 (Logical Operators)--------------------------------
+// 4 ---------------------------------位运算符 (Bitwise Operators)--------------------------------
 
     exit(0);
 }
-
-
-// ### 3. ****
-// - `&&` —— Logical AND (逻辑与)
-// - `||` —— Logical OR (逻辑或)
-// - `!` —— Logical NOT (逻辑非)
 
 // ---
 
