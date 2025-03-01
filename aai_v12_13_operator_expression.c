@@ -49,11 +49,11 @@ int main()
 // 3.1 ---------------------------------逻辑运算符 (Logical Operators)--------------------------------
     printf("\n逻辑运算符: j=10, value of !j: %d.\n", !j); //j值为10
     printf("value of !0: %d \n", !0); //
-// 3.2 ---------------------------------逻辑与或的短路特性 (Logical Operators)--------------------------------
+// 3.2 ---------------------------------逻辑与或的短路特性 (Short-Circuit Evaluation)--------------------------------
     int aa = 1, bb = 2, cc=3, dd=4;
     int ii=1, jj=1;
-    int kk = (ii=aa>bb)&&(jj=cc>dd);//与运算符，左边为假，右边不执行,所以ii值改为0，jj值不变
-    kk++;
+    int kk = (ii=aa>bb)&&(jj=cc>dd);//与运算符，左边为假则整个表达式为0，不用执行右边了,所以ii值改为0，jj值不变
+    printf("kk=(ii=aa>bb)&&(jj=cc>dd), aa=%d, bb=%d, cc=%d, dd=%d, kk=%d\n", aa, bb, cc, dd, kk);
     printf("ii=%d, jj=%d\n", ii, jj);//jj值还是1
 
     int kk2 = (ii=aa<bb)||(jj=cc>dd);//或运算符，左边为真，右边不执行,所以ii值改为1，jj值不变
@@ -64,8 +64,71 @@ int main()
     printf("kk3=(ii=aa>bb)||(jj=cc>dd), aa=%d, bb=%d, cc=%d, dd=%d, kk3=%d\n", aa, bb, cc, dd, kk3);
     printf("Logical OR result: ii=%d, jj=%d\n", ii, jj);//jj值变为0
 
+// 4 ---------------------------------assignment operator---------------------------------
+    printf("\nassignment operator, x = 10, y = 20:\n");
+    int x = 10, y = 20;
+    x += y; // x = x + y;
+    printf("x += y, x=%d\n", x);
+    x -= y; // x = x - y;
+    printf("x -= y, x=%d\n", x);
+    x *= y; // x = x * y;
+    printf("x *= y, x=%d\n", x);
+    x /= y; // x = x / y;
+    printf("x /= y, x=%d\n", x);
+    x %= y; // x = x % y;
+    printf("x %%= y, x=%d\n", x);
+    x &= y; // x = x & y;
+    printf("x &= y, x=%d\n", x);
+    x |= y; // x = x | y;
+    printf("x |= y, x=%d\n", x);
+    x ^= y; // x = x ^ y;
+    printf("x ^= y, x=%d\n", x);
+    x <<= y; // x = x << y;
+    printf("x <<= y, x=%d\n", x);
+    x >>= y; // x = x >> y;
+    printf("x >>= y, x=%d\n", x);
+
+    int var_assignment_a =6;
+    var_assignment_a *= var_assignment_a += 3; //warning: operation on ‘var_assignment_a’ *= may be undefined
+    printf("var_assignment_a -= var_assignment_a*= var_assignment_a += 3, var_assignment_a=%d\n", var_assignment_a);
+
+// 5 ---------------------------------条件运算符 Conditional Operator---------------------------------
+    int max = (a > b) ? a : b;
+    printf("max = (a > b) ? a : b, max=%d, a=%d, b=%d\n", max, a, b);
+
+// 6 ---------------------------------sizeof 运算符--------------------------------
+    printf("size = sizeof(int), size=%ld\n", sizeof(int));
+    printf("size of short: %ld\n", sizeof(short));
+    printf("size of double: %ld\n", sizeof(double));
+    printf("size of float: %ld\n", sizeof(float));
+    printf("size of char: %ld\n", sizeof(char));
+    printf("size of long: %ld\n", sizeof(long));
+    printf("size of long long: %ld\n", sizeof(long long));
+    printf("size of pointer: %ld\n", sizeof(int*));
+
+// 7 ---------------------------------强制类型转换运算符 type casting operator---------------------
+    printf("\n强制类型转换运算符 type casting operator:\n");
+    int sum = 17, count = 5;
+    double mean;
+    mean =  sum / count;
+    double mean_type_casting = (double) sum / count;
+    printf("sum=17, count=5, mean = sum / count, mean=%f\n", mean);
+    printf("sum=17, count=5, mean = (double) sum / count, mean=%f\n", mean_type_casting);
+
+    int var_type_casting_a = 10;
+    double var_type_casting_b = 2.5;
+    var_type_casting_a = var_type_casting_b;
+    printf("隐式转换,损失精度: var_type_casting_a = var_type_casting_b (2.5), var_type_casting_a=%d\n", var_type_casting_a);
+    var_type_casting_a = (int) var_type_casting_b;
+    printf("显式转换,保留整数部分: var_type_casting_a = (int) var_type_casting_b (2.5), var_type_casting_a=%d\n", var_type_casting_a);
+    //type casting operator不改变原始值，只是改变表达式的值，var_type_casting_b的值还是2.5
 
 // 4 ---------------------------------位运算符 (Bitwise Operators)--------------------------------
+    printf("\n位运算符 (Bitwise Operators):\n");
+    int bitwise_and = a & b; // Bitwise AND
+    printf("a=21, b=10, bitwise_and = a & b, bitwise_and=%d\n", bitwise_and);
+    
+
 
     exit(0);
 }
@@ -82,22 +145,15 @@ int main()
 
 // ---
 
-// ### 5. **赋值运算符 (Assignment Operators)**
-// - `=` —— Assignment (赋值)
-// - `+=` —— Add and assign (加后赋值)
-// - `-=` —— Subtract and assign (减后赋值)
-// - `*=` —— Multiply and assign (乘后赋值)
-// - `/=` —— Divide and assign (除后赋值)
-// - `%=` —— Modulus and assign (取模后赋值)
-// - `&=` —— Bitwise AND and assign (按位与后赋值)
-// - `|=` —— Bitwise OR and assign (按位或后赋值)
-// - `^=` —— Bitwise XOR and assign (按位异或后赋值)
-// - `<<=` —— Left shift and assign (左移后赋值)
+// 赋值运算符 (Assignment Operators)**
+// - `=` —— Assignment (赋值) // - `+=` —— Add and assign (加后赋值)
+// - `-=` —— Subtract and assign (减后赋值) // - `*=` —— Multiply and assign (乘后赋值)
+// - `/=` —— Divide and assign (除后赋值) // - `%=` —— Modulus and assign (取模后赋值)
+// - `&=` —— Bitwise AND and assign (按位与后赋值) // - `|=` —— Bitwise OR and assign (按位或后赋值)
+// - `^=` —— Bitwise XOR and assign (按位异或后赋值) // - `<<=` —— Left shift and assign (左移后赋值)
 // - `>>=` —— Right shift and assign (右移后赋值)
 
-// ---
-
-// ### 6. **条件运算符 (Conditional Operator)**
+// ### 6. **)**
 // - `? :` —— Ternary operator (三元运算符)
 
 // ---
