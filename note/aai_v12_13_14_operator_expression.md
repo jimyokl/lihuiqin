@@ -8,6 +8,7 @@ v9v10: 1、2、
        eg: %,==,逻辑与或的短路特性,
   3.5, 位运算: 在嵌入式开发中，位运算很重要：
       eg：1.对某一位进行处理；2.处理缓冲；3.底层对图像处理；4.
+     ![image](https://github.com/jimyshow/image_host_lihuiqin/blob/main/image_host/v14_Figure%2015-1%20Layout%20of%20st_mode%20bit%20mask.png)
 
 i=5；表达式++i的值是6。
  分量运算符：.,->
