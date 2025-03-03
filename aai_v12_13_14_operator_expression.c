@@ -207,51 +207,84 @@ int main()
     binary_var = ~binary_var; //按位取反
     printf("binary_var == 0b1100, binary_var = ~binary_var, binary_var=%d\n", binary_var); //-13
 
+    int complement_var = 0xfffffff3;
+    printf("complement_var = 0xfffffff3, complement_var=%d\n", complement_var);
+    //如果 0xfffffff3 是一个有符号整数（如 int），它会被解释为补码形式。
+    //补码表示法中，最高位 1 表示负数，其值的计算方法是：求原码（即正数对应的绝对值）：计算 补码转原码，方法是 先取反，再加 1。
+    //补码表示法会导致额外的 -1 偏移,所以加1
 
-    int bitwise_and = a & b; // Bitwise AND
-    printf("a=21, b=10, bitwise_and = a & b, bitwise_and=%d\n", bitwise_and);
+    //最高位（第 31 位）是 1，表示这是一个负数。
+    //1111 1111 1111 1111 1111 1111 1111 0011这是一个负数的补码表示。
+    //要得到它的十进制值，需要将其转换回原码：取反加一。
+    //取反：0000 0000 0000 0000 0000 0000 0000 1100。加 1：0000 0000 0000 0000 0000 0000 0000 1101。
+    //转换为十进制：13, 因为是负数(符号位是1)，所以最终值为 -13。
+
     
 
+    //C语言及计算机系统中，整数默认以补码形式存储，这使得计算更高效、简洁
+    //正数：正数的补码与其原码相同。
+    //负数：负数的补码是其原码除符号位外取反加1。
+    //n位二进制数，补码表示的范围为：最小值为 − 2^(n−1), 最大值为2^(n−1) −1。
+
+    int bitwise_and = a & b; // Bitwise AND
+    printf("a=%d(10101), b=%d(1010), bitwise_and = a & b, bitwise_and=%d\n", a, b, bitwise_and);
+
+    int bitwise_or = a | b; // Bitwise OR
+    printf("a=%d(10101), b=%d(1010), bitwise_or = a | b, bitwise_or=%d\n", a, b, bitwise_or);
+    //21的二进制是0b10101，10的二进制是0b1010，按位或后是0b11111，十进制是31
+    
+    int bitwise_xor = a ^ b; // Bitwise XOR (按位异或)
+    printf("a=%d(10101), b=%d(1010), bitwise_xor = a ^ b, bitwise_xor=%d\n", a, b, bitwise_xor);
+    //21的二进制是0b10101，10的二进制是0b1010，按位异或后是0b11111，十进制是31
+
+    // >>, right shift
+    int right_shift_var = 0b1100;
+    right_shift_var = right_shift_var >> 1; //右移1位，相当于除以2
+    printf("right_shift_var == 0b1100, right_shift_var >> 1, right_shift_var=%d\n", right_shift_var);
+
+    // <<, left shift
+    int left_shift_var = 0b1100;
+    left_shift_var = left_shift_var << 1; //左移1位，相当于乘以2
+    printf("left_shift_var == 0b1100, left_shift_var << 1, left_shift_var=%d\n", left_shift_var);
+
+    printf("\n位运算符 (Bitwise Operators) set a bit to 1:\n");
+    // set a bit to 1
+    int set_bit_var = 0b1100;
+    int set_bit_pos = 1;
+    int set_bit_pos_value = 1 << set_bit_pos;
+    set_bit_var = set_bit_var | set_bit_pos_value;
+    printf("set_bit_var == 0b1100, 1<< left shift 1, set_bit_var = set_bit_var | set_bit_pos_value, set_bit_var=%d\n", set_bit_var);
+
+    // set a bit to 0
+    int set_bit_var_0 = 0b1111;
+    int set_bit_pos_0 = 2;  //第3位 
+    int set_bit_pos_value_0 = ~(1 << set_bit_pos_0); //取反
+    set_bit_var_0 = set_bit_var_0 & set_bit_pos_value_0;
+    printf("set_bit_var_0 == 0b1111, ~(1<< left shift 2), set_bit_var_0=set_bit_var_0 & set_bit_pos_value_0, set_bit_var_0=%d\n", set_bit_var_0);
+
+    //慧芹老师布置作业：C语言位运算，如何从一个指定宽度的数中取出其中的某几位?
+
+    unsigned int number = 0b11011010; // 二进制 11011010，十进制 218
+    int start = 2;                   // 从第 2 位开始
+    int width = 4;                   // 提取 4 位
+    unsigned int mask = (1 << width) - 1; // 生成掩码 00001111
+    unsigned int result = (number >> start) & mask; // 右移 2 位并应用掩码
+    printf("\nselect bits from a number: number=0b11011010, start=2 (实际上是从右到左第3位), width=4\n");
+    printf("result = (number >> start) & mask, mask=0b00001111, result=%d\n", result); // 6
 
     exit(0);
 }
 
-// - `&` —— Bitwise AND (按位与)
-// - `|` —— Bitwise OR (按位或)
-// - `^` —— Bitwise XOR (按位异或)
-
-// - `>>` —— Right shift (右移)
-
-// ---
-
-// 赋值运算符 (Assignment Operators)**
-// - `=` —— Assignment (赋值) // - `+=` —— Add and assign (加后赋值)
-// - `-=` —— Subtract and assign (减后赋值) // - `*=` —— Multiply and assign (乘后赋值)
 // - `/=` —— Divide and assign (除后赋值) // - `%=` —— Modulus and assign (取模后赋值)
 // - `&=` —— Bitwise AND and assign (按位与后赋值) // - `|=` —— Bitwise OR and assign (按位或后赋值)
 // - `^=` —— Bitwise XOR and assign (按位异或后赋值) // - `<<=` —— Left shift and assign (左移后赋值)
 // - `>>=` —— Right shift and assign (右移后赋值)
 
-// ### 6. **)**
-// - `? :` —— Ternary operator (三元运算符)
-
-// ---
-
-// ### 7. **其他运算符 (Other Operators)**
-// - `sizeof` —— Size of operator (计算大小运算符)
 // - `&` —— Address-of operator (取地址运算符)
 // - `*` —— Pointer dereference operator (指针解引用运算符)
 // - `,` —— Comma operator (逗号运算符)
 
-// ---
-
-// ### 示例代码：
-// ```c
-// #include <stdio.h>
-
-// int main() {
 //     // Arithmetic Operators
-//     int a = 10, b = 3;
 //     int sum = a + b;        // Addition
 //     int difference = a - b; // Subtraction
 //     int product = a * b;    // Multiplication
@@ -260,25 +293,5 @@ int main()
 
 //     // Relational Operators
 //     if (a == b) {           // Equal to
-//         printf("a is equal to b\n");
-//     }
 
-//     // Logical Operators
-//     if (a > 0 && b > 0) {   // Logical AND
-//         printf("Both a and b are positive\n");
-//     }
-
-//     // Bitwise Operators
-//     int bitwise_and = a & b; // Bitwise AND
-
-//     // Assignment Operators
-//     a += 5; // Add and assign
-
-//     // Conditional Operator
 //     int max = (a > b) ? a : b; // Ternary operator
-
-//     // Other Operators
-//     int size = sizeof(a); // Size of operator
-
-//     return 0;
-// }

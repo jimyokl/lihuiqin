@@ -6,7 +6,7 @@ v9v10: 1、2、
   3.3, 结合性(从左到右or 从右到左); 优先级
   3.4, 特殊用法
        eg: %,==,逻辑与或的短路特性,
-  3.5, 位运算: 在嵌入式开发中，位运算很重要：
+  3.5, 位运算: 在嵌入式开发中，位运算很重要：将操作数某一位置1或置0，其他位不变
       eg：1.对某一位进行处理；2.处理缓冲；3.底层对图像处理；4.
      ![image](https://github.com/jimyshow/image_host_lihuiqin/blob/main/image_host/v14_Figure%2015-1%20Layout%20of%20st_mode%20bit%20mask.png)
 
