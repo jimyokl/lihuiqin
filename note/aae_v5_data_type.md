@@ -5,7 +5,11 @@ video 5:
 1.基本类型
   1.1 数值类型
     1.1.1 整型-整数类型
+    ![image](https://github.com/jimyshow/image_host_lihuiqin/blob/main/image_host/v5_%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B_%E5%80%BC%E8%8C%83%E5%9B%B4.png)
         a. 短整型 short
+          --在补码中，符号位的值为−2^(n−1)（而非简单的符号标记）。例如，16位数的符号位权重是−32768−32768，当符号位
+            为1且其他位为0时，值就是−32768−32768。
+          --因为-32768 没有正数对应的相反数（无法用 16 位存储 +32768，因为 0111 1111 1111 1111 + 1 会溢出）.
         b. 整型 int
         c. 长整型 long
     1.1.2 浮点型-小数类型
@@ -25,6 +29,7 @@ c标准规定: int比char占用的字节数多,int比float占用的字节数少
 0.000789-> 0.789(存为小于1的数) *10^-3, 浮点数, 0.789是尾数, -3是指数, 例如32位, 1位符号位, 然后是8位存指数位, 接着23位存尾数位
 
 ascii code:
+![image](https://github.com/jimyshow/image_host_lihuiqin/blob/main/image_host/v5_2_ASCII%E8%A1%A8.jpg)
 空字符 '\0', ascii码为000,
 '\0'一般放在字符串的结束处，用来表示字符串的结束，其是ascii值为0的字符的转义
 strlen()计算长度时不考虑末尾的'\0'
