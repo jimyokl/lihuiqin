@@ -1,0 +1,5 @@
+Hello, C programming!
+Writing to a text file.
+123
+45.67
+Hello, World!
