@@ -21,14 +21,14 @@ struct Data {
 };
 
 int main() {
-    FILE *file_text = fopen("text_file.txt", "w"); // 以写入模式打开文件
+    FILE *file_text = fopen("text_file.txt", "a"); // 以写入模式打开文件
     if (file_text == NULL) {
         perror("无法打开文件");
         return 1;
     }
-
-    fprintf(file_text, "Hello, C programming!\n");
-    fprintf(file_text, "Writing to a text file.\n");
+    fputc('\n', file_text);
+    fprintf(file_text, "mar11 vscode offline code completion\n");
+    fprintf(file_text, "intellicode failed, not working.\n");
 
     int num1 = 123;     float num2 = 45.67;     char str[] = "Hello, World!";
     fprintf(file_text, "%d\n", num1);  // 写入整数
@@ -63,3 +63,4 @@ int main() {
 
     exit(0);
 }
+

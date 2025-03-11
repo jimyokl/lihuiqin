@@ -26,9 +26,9 @@ int main()
     fgets(str, sizeof(str), stdin);
     printf("You entered: %s\n", str);
     int str_len = strlen(str);
-    printf("The length of the string is: %d\n", str_len);
+    printf("The length of the string is: %d\n", str_len); //可能会多打印一个回车符
 
-    for (int i = 0; str[i] != '\0'; i++) {
+    for (int i = 0; str[i] != '\0'; i++) {   //当fgets参数2很大时，得到的参数1一个一个字符地输出时，会看到最后有一个'\n'
         printf("str[%d] = %d\n", i, str[i]);
     }
     // Enter a string, then press Enter:  abcde
