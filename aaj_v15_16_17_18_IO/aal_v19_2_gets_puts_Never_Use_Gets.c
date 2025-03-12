@@ -27,12 +27,13 @@ int main()
     // It adds a newline to the end ("trailing newline") of everything it prints by default
     // “换行符”,默认情况下，它会在打印的所有内容的末尾添加一个换行符（“尾随换行符”）。
     char str[STRSIZE];
-    puts("Enter a string，然后按 <Enter>:"); //字符间可以有空格
+    puts("Enter a string，then press <Enter>:"); //字符间可以有空格
     gets(str);
     puts("You entered: ");
     puts(str);
 
     char str_overrun[STRSIZE_overrun]; 
+    printf("\ngets(str), str length is only 3, buffer overrun will happen\n");
     puts("Enter a string, then press <Enter>:"); //字符间可以有空格
     gets(str_overrun);
     puts("You entered: ");

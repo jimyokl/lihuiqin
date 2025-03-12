@@ -22,7 +22,7 @@ int main()
 
     printf("请输入一个字符: ");
     scanf("%c", &ch);   // 读取字符
-    printf("你输入的字符是: %c\n", ch);
+    printf("你输入的integer and character are: %d, %c\n", num, ch);
 
     printf("\n请输入一个整数和一个字符: ");
     scanf("%d", &num);  // 读取整数
@@ -31,7 +31,6 @@ int main()
 
     printf("你输入的整数是: %d\n", num);
     printf("你输入的字符是: %c，ASCII码是: %d\n", ch, ch);
-
 
     exit(0);
 }

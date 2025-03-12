@@ -29,7 +29,7 @@ int main()
     printf("The length of the string is: %d\n", str_len); //可能会多打印一个回车符
 
     for (int i = 0; str[i] != '\0'; i++) {   //当fgets参数2很大时，得到的参数1一个一个字符地输出时，会看到最后有一个'\n'
-        printf("str[%d] = %d\n", i, str[i]);
+        printf("str[%d] = %c, its ASCII value is: %d\n", i, str[i], str[i]);
     }
     // Enter a string, then press Enter:  abcde
     // You entered: abcde

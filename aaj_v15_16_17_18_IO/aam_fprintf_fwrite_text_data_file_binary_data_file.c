@@ -27,8 +27,13 @@ int main() {
         return 1;
     }
     fputc('\n', file_text);
-    fprintf(file_text, "mar11 vscode offline code completion\n");
-    fprintf(file_text, "intellicode failed, not working.\n");
+    // fprintf(file_text, "mar11 vscode offline code completion\n");
+    // fprintf(file_text, "intellicode failed, not working.\n");
+
+    char str_fgets[100];
+    printf("Enter a string, then press <Enter>:\n");
+    fgets(str_fgets, sizeof(str_fgets), stdin);
+    fprintf(file_text, "%s", str_fgets);
 
     int num1 = 123;     float num2 = 45.67;     char str[] = "Hello, World!";
     fprintf(file_text, "%d\n", num1);  // 写入整数
