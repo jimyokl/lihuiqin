@@ -3,9 +3,11 @@
 
 int main() {
     FILE *file;
-    char name[50];
+    char name[50] = "";
     int age;
     float height;
+
+    name[0] = '\0';  // 清空字符串
 
     // 打开文件
     file = fopen("data.txt", "r");
