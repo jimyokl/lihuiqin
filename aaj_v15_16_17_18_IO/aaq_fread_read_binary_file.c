@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int main() {
-    FILE *file = fopen("example.bin", "rb");  // 以二进制方式打开文件
+    FILE *file = fopen("binary_file.dat", "rb");  // 以二进制方式打开文件
     if (!file) {
         perror("文件打开失败");
         return 1;
@@ -17,7 +17,11 @@ int main() {
     } else {
         printf("文件读取失败或文件为空\n");
     }
+    printf("文件内容：\n");
+    for (size_t i = 0; i < bytesRead; i++) {
+        printf("%02X\n", buffer[i]);
+    }
 
     fclose(file);
-    return 0;
+    exit(0);
 }

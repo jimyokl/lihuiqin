@@ -16,6 +16,7 @@ int main()
     printf("Please enter for i[int] and f[float] like this: i,f (整型数,逗号,小数):\n");
     float f;
     scanf("%d,%f", &i, &f);
+    while (getchar() != '\n'); //清空输入缓冲区
     printf("i = %d, f = %f\n", i, f);
 
     //如果scanf中%d,%f之间为空，那么输入时可以敲空格，回车，换行等
@@ -28,8 +29,9 @@ int main()
     printf("Please enter a string:\n");
     scanf("%s", str); //输入hello可以，但是如果输入hello world，只会读取hello，
     //%s作为输入项，不能中间添加间隔符，例如“空格，tab键，回车，换行”等
+    while (getchar() != '\n'); //清空输入缓冲区
     printf("str = %s\n", str);
-    puts(str);
+    // puts(str);
 
     printf("\nscanf中输入%%s是很危险的，因为不知道输入的字符串长度，可能会造成缓冲区溢出,最好用fgets\n");
     //scanf中输入%s是很危险的，因为不知道输入的字符串长度，可能会造成缓冲区溢出,最好用fgets
