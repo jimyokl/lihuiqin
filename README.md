@@ -114,6 +114,7 @@ origin  https://github.com/tianqixin/runoob-git-test (fetch)
 origin  https://github.com/tianqixin/runoob-git-test (push)
 origin 为远程地址的别名。
 
+vmware version: VMware-workstation-full-15.5.6-16341506.exe
 #vscode ssh with rsa key, without passwd
 -zhuanlan.zhihu.com/p/222452460;blog.songjiahao.com/archives/262
 把本地公钥上传到远程机器,在远程机器上,用公钥生成authorized_keys,
