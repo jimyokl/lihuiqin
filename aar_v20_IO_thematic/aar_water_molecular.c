@@ -1,27 +1,32 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-
 #define WATER_MOLECULAR_WEIGHT 3.0e-23
-#define QUART     950
-
+#define QUART     950                       //quarter, 1/4 gallon加仑
+static void water(void);
+static void area(void);
+static void root(void);
+int main( )
+{
+    water();
+    // area();
+    // root( );
+    exit(0);
+}
 static void water(void)
 {
-    float num;
-    double sum;
-
+    float num; double sum;
     printf("Please input how many quart of water:");
     scanf("%f", &num);
-
     if (num <= 0)
     {
         fprintf(stderr, "Input Error!\n");
         exit(1);
     }
-    sum = num * KQ/WEIGHT;
-
+    sum = num*QUART/WATER_MOLECULAR_WEIGHT;
+    printf("sizeof(float) = %lu\n", sizeof(float));
+    printf("Total water molecular number is %f\n", sum); //31,666,666,666,666,665,598,517,248
     printf("Total water molecular number is %e\n", sum);
-
     return;
 }
 
@@ -77,15 +82,4 @@ void root(void)
 
     printf("x1 = %f\n", x1);
     printf("x2 = %f\n", x2);
-}
-
-int main( )
-{
-    // water();
-
-    // area();
-
-    // root( );
-
-    exit(0);
 }
