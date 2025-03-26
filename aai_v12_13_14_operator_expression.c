@@ -6,6 +6,7 @@ int main()
 //Subtraction —— 减法; (Multiplication) —— 乘法; (Division) / —— 除法; (Modulus) % —— 取余(模运算);
 //(Increment) ++ —— 自增; (Decrement) -- —— 自减
     int a = 21; int b = 10; int c ;
+    printf("int a, sizeof(a): %zd.\n", sizeof a);
     c = a + b;
     printf("Line 1 - Value of c is %d\n", c );
 

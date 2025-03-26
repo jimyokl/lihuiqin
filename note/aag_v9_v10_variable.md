@@ -44,4 +44,3 @@ global variable注意事项:
 
 Thread-local storage (线程局部存储
 线程局部存储（英语：Thread-local storage，缩写：TLS）是一种存储持续期（storage duration），对象的存储是在线程开始时分配，线程结束时回收，每个线程有该对象自己的实例。
-
