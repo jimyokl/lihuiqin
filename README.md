@@ -1,8 +1,7 @@
-# lihuiqin course videos
-bilibili.com/video/BV18p4y167Md
+# lihuiqin course videos，bilibili.com/video/BV18p4y167Md
 
-别人的笔记: github.com/impact-eintr/LinuxC/blob/main/C/README.md
-其他自己的笔记在note文件夹里面
+看这个视频别人的笔记: github.com/impact-eintr/LinuxC/blob/main/C/README.md
+yan的笔记在note文件夹里面
 video4: 
   1. main is a thread too,多线程并发,如果事先结束这个线程,程序还能跑, 对应的源代码是d_hello.c
 	 内核对于进程/线程不能区别，只知道进程
@@ -19,7 +18,18 @@ video4:
    4. 进程:32位机器,一个进程占用4g虚拟空间
    5. 防止写越界,防止内存泄漏,谁打开谁关闭,谁申请谁释放
 7.函数 8.构造类型 9.动态内存管理 10.调试工具和技巧gdb,make 11.常用库函数
-![image](https://github.com/jimyokl/lihuiqin/blob/main/media/bg2015120901.png)
+![image](https://github.com/jimyshow/image_host_lihuiqin/blob/main/image_host/zzz_about_git_workplace_index_repository_flowChart_bg2015120901.png)
+
+vmware version: VMware-workstation-full-15.5.6-16341506.exe
+wsl git 不能访问:
+1. 刚安装完wsl时，找到一个解决办法，把 proxy support从“override” 改为off
+2. mar27，ping不同git。zhuanlan.zhihu.com/p/153124468说在wsl里面流量转到windows clash，clash打开allow lan，重启电脑
+    # 添加到环境变量设置中，例如~/.zshrc
+    export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
+    export https_proxy="http://${hostip}:7890"
+    export http_proxy="http://${hostip}:7890"
+3. gist.github.com/libChan/3a804a46b532cc326a2ee55b27e8ac19是和2一样的办法
+
 一、
 1. working directory的文件可能有以下几种状态：
    未跟踪（Untracked）：新创建的文件，未被 Git 记录。
@@ -114,7 +124,6 @@ origin  https://github.com/tianqixin/runoob-git-test (fetch)
 origin  https://github.com/tianqixin/runoob-git-test (push)
 origin 为远程地址的别名。
 
-vmware version: VMware-workstation-full-15.5.6-16341506.exe
 #vscode ssh with rsa key, without passwd
 -zhuanlan.zhihu.com/p/222452460;blog.songjiahao.com/archives/262
 把本地公钥上传到远程机器,在远程机器上,用公钥生成authorized_keys,
@@ -127,7 +136,6 @@ sudo vim /etc/ssh/sshd_config
     PubkeyAuthentication yes
     sudo service sshd restart
 #########
-代码自动补全: fittencode
 #change repo
 sudo mv CentOS-*.repo backup/
 sudo curl -o CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo
@@ -136,10 +144,3 @@ sudo yum makecache
 #安装其他软件，例如git
 sudo yum groupinstall "Development Tools"
 sudo yum install curl-devel expat-devel gettext-devel openssl-devel  perl-CPAN perl-devel zlib-devel
-
-cd /usr/src/
-sudo wget https://github.com/git/git/archive/refs/tags/v2.47.1.tar.gz
-sudo tar -xf git.tar.gz
-cd git-*
-sudo make prefix=/usr/local all
-sudo make prefix=/usr/local install
