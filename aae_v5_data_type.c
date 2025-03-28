@@ -50,7 +50,6 @@ int main()
     // print ascii code of number 0 and 9
     printf("ASCII code of 0 and 9: %d and %d.\n", '0', '9');
 
-
     // print ascii code 048
     printf("ASCII code of 048 and 057: %c, %c\n", 48, 57);
     printf("ASCII code of 065 and 091: %c, %c\n", 65, 90); // 26 letters A-Z
@@ -72,10 +71,10 @@ int main()
    if( fabs(minus_f-0) < 1e-6)
 // if( abs(minus_f-0) < 0.000001)
    {
-   	printf("minus_f is around 0\n");
+   	    printf("minus_f is around 0\n");
    }
    else 
-   	printf("minus_f is not around 0\n");
+   	    printf("minus_f is not around 0\n");
 
     int int_max = 2147483647; 
     int_max = int_max + 1; //输出-2147483648
@@ -87,4 +86,3 @@ int main()
 
     return 0;  // exit(0);更好
 }
-

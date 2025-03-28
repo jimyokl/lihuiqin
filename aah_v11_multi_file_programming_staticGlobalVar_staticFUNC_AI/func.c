@@ -1,10 +1,9 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "func.h" // 包含头文件
 
 // 定义全局变量
-int globalVar = 0;
+int globalVar = 0;         // globalVar在main.c中可以访问
 // extern int globalVar_2; //globalVar_2在main.c中定义
 //extern int globalVar_2 = 88; //报错:multiple definition of `globalVar_2'
 extern float globalVar_2; // 会改变main.c中的globalVar_2的值,可能会改为0值(此时globalVar_2=0.000000.)

@@ -16,24 +16,24 @@
 
 //编译多个文件：使用 gcc 编译多个源文件时，需要将所有文件一起编译。
 
-static int i = 11;
+static int i = 11;          //static全局变量，只能在本文件中访问
 
-int globalVar_2 = 22;
+int globalVar_2 = 22;  
 
 int main() {
-    // 访问全局变量
+    //globalVar在func.h中声明：extern int globalVar;
     printf("now in function: [%s]\n", __func__);
-    printf("        Initial globalVar: %d, static global var in main i=%d.\n", globalVar, i);
+    printf("        Initial globalVar: %d, static global var 'i' in main= %d.\n", globalVar, i);
 
-    // 调用函数
+    //调用2次在func.c中的函数
+    printf("\nto increment globalVar for 1st time:\n");
+    incrementGlobalVar();
+    printGlobalVar();
+    printf("\nto increment globalVar for 2nd time:\n");
     incrementGlobalVar();
     printGlobalVar();
 
-    printf("now begin to increment globalVar for 2nd time\n");
-    incrementGlobalVar();
-    printGlobalVar();
-
-    // static_func();
+    //调用在func.c文件中的static void static_func()
     call_static_func();
 
     print_extern_globalVar_2_in_main();

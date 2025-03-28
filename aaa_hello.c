@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 /*
 void main(void); 
 int main(void);
@@ -34,7 +33,6 @@ cc     hello.c   -o hello //cc是预定义好的一个名字,cc默认是gcc的�
   //如果make hello.c,会去找hello.c.c，不存在
 
 */
-
 int main(void) {
 	printf("Hello, world!\n");
 	exit(0);
@@ -44,4 +42,3 @@ int main(void) {
 	char linebuf[BUFFSIZE]; // ctrl+p can 自动补全 in vim
 	// shift+k 可以自动跳转man手册,当光标停留在函数名称上的时候	
 }
-
