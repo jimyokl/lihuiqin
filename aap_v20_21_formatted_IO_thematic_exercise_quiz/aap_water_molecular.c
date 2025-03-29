@@ -7,8 +7,8 @@ static void water(void); static void area(void); static void root(void);// 3个�
 int main(void)
 {
     //water();
-    area();
-    //root( );
+    //area();
+    root( );
     exit(0);
 }
 static void area(void)
@@ -25,18 +25,18 @@ static void area(void)
     while(getchar() != '\n');
     if (a + b <= c || b + c <= a || a + c <= b)
     {
-        fprintf(stderr, "EINVAL, 2 triangle side len sum < 3rd\n");//EINVAL是常见的错误码，表示Invalid argument
+        fprintf(stderr, "EINVAL, 2 triangle side len sum < 3rd side length.\n");//EINVAL是常见的错误码，表示Invalid argument
         exit(0);
     }
     printf("1st triangle side: a = %f\n", a);
     printf("2nd triangle side: b = %f\n", b);
     printf("3rd triangle side: c = %f\n", c);
-    s = 1 / 2.0 * (a + b + c);               // 三边长之和除以2叫做半周长（semi-perimeter）
+    s = 1 / 2 * (a + b + c);               // 三边长之和除以2叫做半周长（semi-perimeter）
     //两个操作数都是整数，除法运算 (/) 执行的是整数除法，即舍弃小数部分，只保留整数部分。
     //可以：(float)1 / 2；(double)1 / 2；1.0 / 2；1 / 2.0；
-    printf("s = %f\n", s);
+    printf("半周长（semi-perimeter） s = %f\n", s);
     area = sqrt( s * (s-a) * (s-b) * (s-c) )   ;//海伦公式， sqrt是square root的缩写，开平方
-    printf("area = %f\n", area);
+    printf("面积 area = %f\n", area);
 }
 static void area_todel_(void)
 {
@@ -57,6 +57,7 @@ static void area_todel_(void)
     // 1 / 2是int型计算，得到的是商0余1
     area = sqrt(s * (s - a) * (s - b) * (s - c));
     printf("area = %f\n", area);
+    return;
 }
 static void water(void)        // static禁止函数在其他文件中使用（外部扩展）
 {
@@ -65,8 +66,8 @@ static void water(void)        // static禁止函数在其他文件中使用（�
     scanf("%f", &num);
     if (num <= 0)
     {
-        fprintf(stderr, "Input Error!\n");
-        exit(1);
+        fprintf(stderr, "Input Error! number of quart should greater than 0\n");
+        exit(1); // exit is better than return
     }
     total_molecule = num*GRAM_PER_QUART/WATER_MOLECULAR_WEIGHT;
     printf("totally there are %lf water melecule.\n", total_molecule);//31,666,666,666,666,665,598,517,248
