@@ -31,7 +31,9 @@ static void area(void)
     printf("1st triangle side: a = %f\n", a);
     printf("2nd triangle side: b = %f\n", b);
     printf("3rd triangle side: c = %f\n", c);
-    s = 1.0 / 2 * (a + b + c);               // 三边长之和除以2叫做半周长（semi-perimeter）
+    s = 1 / 2.0 * (a + b + c);               // 三边长之和除以2叫做半周长（semi-perimeter）
+    //两个操作数都是整数，除法运算 (/) 执行的是整数除法，即舍弃小数部分，只保留整数部分。
+    //可以：(float)1 / 2；(double)1 / 2；1.0 / 2；1 / 2.0；
     printf("s = %f\n", s);
     area = sqrt( s * (s-a) * (s-b) * (s-c) )   ;//海伦公式， sqrt是square root的缩写，开平方
     printf("area = %f\n", area);
