@@ -14,7 +14,7 @@ int main(void)
 void root(void)
 {
     float a, b, c; float disc; float p, q; float x1, x2;
-    printf("Please input a,b and c:\n");
+    printf("Please input a,b and c:");
     scanf("%f%f%f", &a, &b, &c);
     disc = b * b - 4 * a * c;                   //Δ=b^2−4ac 被称为 判别式（discriminant）
     if (b * b - 4 * a * c < 0)
