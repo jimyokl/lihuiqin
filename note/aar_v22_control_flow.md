@@ -17,5 +17,6 @@
 if-else：格式 
         if(exp) statement;
         if(exp) statement_1; else statement_2;
-        
+
+注意：else和它最近的if进行配对        
 
