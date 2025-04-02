@@ -21,7 +21,15 @@ int main(void)
         exit(1);    
     }
     if(score<=100 && score>=90) {
-        printf("your grades class is A\n");
+        printf("your grade classification is A\n");
+    }else if(score<90 && score>=80) {
+        printf("your grade classification is B\n");
+    }else if(score<80 && score>=70) {
+        printf("your grade classification is C\n");
+    }else if(score<70 && score>=60) {
+        printf("your grade classification is D\n");
+    }else if(score<60 && score>=0) {
+        printf("your grade classification is E/F (fail).\n");
     }
 
     exit(0);    

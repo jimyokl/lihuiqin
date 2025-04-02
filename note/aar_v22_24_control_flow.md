@@ -14,9 +14,18 @@
 辅助控制：continue，break，
 
 详解：
-if-else：格式 
+1. if-else：格式 
         if(exp) statement;
         if(exp) statement_1; else statement_2;
 
 注意：else和它最近的if进行配对        
 
+2. 多分支switch-case
+  语法格式：
+    switch(exp条件表达式)       // 把条件装载进来
+    {
+        case 常量表达式:
+                break;                  //如果没有break，则继续往下执行
+        ......
+        default:                        //上面的case都不满足，则执行default后面的语句
+    }
