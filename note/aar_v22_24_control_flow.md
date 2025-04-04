@@ -12,19 +12,19 @@
 选择：if else，switch case，
 循环：while，do-while，for，if-goto，
 辅助控制：continue，break，
-
+                                                    顺序
 详解：
 1. if-else：格式 
         if(exp) statement;
         if(exp) statement_1; else statement_2;
 
 注意：else和它最近的if进行配对        
-
+                                                    选择
 2. 多分支switch-case
   语法格式：
     switch(exp条件表达式)       // 把条件装载进来
     {
-        case 常量表达式:
+        case 常量 或 常量表达式:
                 break;                  //如果没有break，则继续往下执行
         ......
         default:                        //上面的case都不满足，则执行default后面的语句
@@ -61,4 +61,10 @@ switch语句default后面跟_exit()函数：
     最常见包括: 事件驱动编程、回调机制等。 在操作系统中，钩子函数常用于监听和响应系统事件，比如键盘输入、鼠标点击等。
 3. atexit不是钩子函数本身，而是C标准库提供的一个函数，它允许程序在正常退出时（即通过exit或return 0退出）执行注册的回调函数。
     可以使用atexit注册一个函数，当程序结束时该函数会被自动调用。
-4. 
+
+                                                    循环
+do
+{
+    loop;               //至少执行loop循环体一次
+}while(exp);
+
