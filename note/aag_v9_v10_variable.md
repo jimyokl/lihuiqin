@@ -1,6 +1,6 @@
 
 一个进程的虚拟空间在32位机器上是4g，0-3g是用户态，3-4g是留给内核使用
-![image](https://github.com/jimyokl/lihuiqin/blob/main/media/%E8%BF%90%E8%A1%8C%E4%B8%AD%E7%9A%84C%E8%AF%AD%E8%A8%80%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80.png)
+![image](https://github.com/jimyshow/image_host_lihuiqin/blob/main/image_host/v9_v10_%E8%BF%90%E8%A1%8C%E4%B8%AD%E7%9A%84C%E8%AF%AD%E8%A8%80%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80.png)
 代码段（Text Segment）：存储程序的机器代码，不可修改。
 数据段（Data Segment）：存储已初始化的全局变量和静态变量。static 变量通常会存储在这个区域。
   -初始化数据段（Initialized Data Segment）：存储已初始化的全局变量和 static 变量。
