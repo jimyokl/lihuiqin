@@ -89,9 +89,19 @@ int main()
     x >>= y; // x = x >> y;
     printf("x >>= y, x=%d\n", x);
 
+    printf("          **************   assignment operator, assignment expression:   **************\n");
     int var_assignment_a =6;
+    printf("var_assignment_a =%d\n", var_assignment_a);
     var_assignment_a *= var_assignment_a += 3; //warning: operation on ‘var_assignment_a’ *= may be undefined
-    printf("var_assignment_a -= var_assignment_a*= var_assignment_a += 3, var_assignment_a=%d\n", var_assignment_a);
+    // var_assignment_a -= var_assignment_a*= var_assignment_a += 3, now var_assignment_a=0
+    printf("var_assignment_a*= var_assignment_a += 3, var_assignment_a=%d\n", var_assignment_a); //81
+
+    int assignment_expression_a = 5, assignment_expression_b;
+    // x = y中，y 的值会被赋给 x，同时整个赋值表达式的值是 y 的值。
+    assignment_expression_b = assignment_expression_a = 5;
+    printf("assignment_expression_a = 5, assignment_expression_b = assignment_expression_a = 5, assignment_expression_b=%d.\n", assignment_expression_b); //5
+    int xx, yy, zz; xx = (yy = (zz = 10)); 
+    printf("xx=(yy=(zz=10)), xx=%d, yy=%d, zz=%d\n", xx, yy, zz); //10
 
 // 5 ---------------------------------条件运算符 Conditional Operator---------------------------------
     int max = (a > b) ? a : b;
