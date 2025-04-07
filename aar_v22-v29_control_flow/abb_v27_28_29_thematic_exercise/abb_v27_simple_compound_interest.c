@@ -6,13 +6,13 @@ void quiz_two()
     do
     {
         printf("        ***********请每次输入一个数，输入这个数字后，按回车确认输入。***********        \n");
-        printf("结束输入，请输入0，再按回车：");   
+        printf("若想结束本次输入，请输入0，再按回车, now num = %d\n", num);
         
         ret_scanf = scanf("%d", &num);
         if(ret_scanf != 1)
         {
             printf("你输入的不是数字，请重新输入：\n");
-            while((ch = getchar()) != '\n' && ch != EOF);  // 清空输入缓冲区
+            while( (ch = getchar()) != '\n' && ch != EOF);  // 清空输入缓冲区
             continue;
         }
 
@@ -40,7 +40,11 @@ void quiz_two()
     }while(num != 0);
 
     printf("totally input %d numbers, even number count=%d, odd number count=%d\n", count_even+count_odd, count_even, count_odd);
-    exit(0);
+     return;
+    // exit(0);
+    // 之前这里不是return，是exit(0), 这个exit()在 main() 和 quiz_two() 中都存在，之前运行如果第一次输入字母，程序会退出
+    // gpt解释说：当你运行 quiz_two() 后，一旦它结束（包括非正常退出），整个程序就结束了。
+    // 之前这是一个非正常退出吗？
 }
 int main(void)
 {

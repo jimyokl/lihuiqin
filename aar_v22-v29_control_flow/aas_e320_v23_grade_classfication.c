@@ -15,8 +15,7 @@ int main(void)
     {
         fprintf(stderr, "number you input is gt 100 or lt 0\n");
         exit(1);
-    }
-    
+    }    
     if (grade >= 90 && grade <=100)
     {
         printf("Your grade is A.\n");
@@ -33,8 +32,6 @@ int main(void)
     {
         printf("Your grade is E.\n");
     }
-    
-    
 
     exit(0);
 }
