@@ -20,7 +20,8 @@ void quiz_two()
         
         if(num == 0)
         {
-            printf("您输入的是0，输入结束。\n");
+            printf("您输入的是0，输入结束。\n"); break;
+            // printf("您输入的是0，输入结束。\n"); 之前没有break,判断是否跳出循环的条件在while()的()里面
         }else{
             printf("你输入的数字是: %d\n", num); 
         }
@@ -37,7 +38,8 @@ void quiz_two()
             sum_odd += num;
             count_odd++;
         }
-    }while(num != 0);
+    }while(1);
+    //}while(num != 0);
 
     printf("totally input %d numbers, even number count=%d, odd number count=%d\n", count_even+count_odd, count_even, count_odd);
      return;
