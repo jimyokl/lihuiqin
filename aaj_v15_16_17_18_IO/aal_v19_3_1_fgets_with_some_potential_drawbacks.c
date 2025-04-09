@@ -28,35 +28,24 @@ int main()
     int str_len = strlen(str);
     printf("The length of the string is: %d\n", str_len); //可能会多打印一个回车符
 
-    for (int i = 0; str[i] != '\0'; i++) {   //当fgets参数2很大时，得到的参数1一个一个字符地输出时，会看到最后有一个'\n'
+    for (int i = 0; str[i] != '\0'; i++)//当fgets参数2很大时，得到的参数1一个一个字符地输出时，会看到最后有一个'\n'     
+    {   
         printf("str[%d] = %c, its ASCII value is: %d\n", i, str[i], str[i]);
     }
-    // Enter a string, then press Enter:  abcde
-    // You entered: abcde
-    // The length of the string is: 6
-    // str[0] = 97
-    // str[1] = 98
-    // str[2] = 99
-    // str[3] = 100
-    // str[4] = 101
-    // str[5] = 10
-
+    //例如输入abcde，字符串长度是6，str[0] = 97 [1] = 98 [2] = 99 [3] = 100 [4] = 101 [5] = 10
     // str[strcspn(str, "\n")] = '\0';  // 去除换行符
 
+    printf("check the terminating null byte of fgets, if input characters are more than its para size:\n");
+    char chk_terminating_null_byte[3] = "";
+    fgets(chk_terminating_null_byte, sizeof(chk_terminating_null_byte), stdin);
+    printf("chk_terminating_null_byte[0] = %c, its ASCII value is: %d\n", chk_terminating_null_byte[0], chk_terminating_null_byte[0]);
+    printf("chk_terminating_null_byte[1] = %c, its ASCII value is: %d\n", chk_terminating_null_byte[1], chk_terminating_null_byte[1]);
+    printf("chk_terminating_null_byte[2] = %c, its ASCII value is: %d\n", chk_terminating_null_byte[2], chk_terminating_null_byte[2]);
 
-    // FILE *fp;
-    // char str[60];
-
-    // /* opening file for reading */
-    // fp = fopen("file.txt" , "r");
-    // if(fp == NULL) {
-    //     perror("Error opening file");
-    //     return(-1);
-    // }
-    // if(fgets(str, 60, fp) != NULL) {
-    //     printf("%s", str);
-    // }
+    // FILE *fp; char str[60]; 
+    // fp = fopen("file.txt" , "r");  // opening file for reading
+    // if(fp == NULL) { perror("Error opening file"); return(-1);}
+    // if(fgets(str, 60, fp) != NULL) { printf("%s", str); }
     // fclose(fp);
-    
     exit(0);
 }   
