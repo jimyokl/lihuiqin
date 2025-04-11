@@ -11,3 +11,5 @@ void five_quiz();
 static void six_quiz();
 static void seven_quiz();
 static void eight_quiz();
+static void nine_quiz();
+static void quiz_ten();
