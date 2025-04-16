@@ -1,23 +1,21 @@
-// 选择排序 (Selection Sort) 
+// 选择排序 (Selection Sort), 平均时间复杂度O(n²) 空间复杂度O(1) 不稳定,小规模数据，交换次数少
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #define SIZE 10
-static void selection()
+static void selection_sort()
 {
-    
-    {
         int ran_arr[SIZE], i, j, max_temp, temp;
-        srand((unsigned int)time(NULL)); // srand(time(NULL));
+        srand((unsigned int)time(NULL));            //srand(time(NULL));
         for(i=0; i<SIZE;i++)
         {
             ran_arr[i]=rand()%100;
             printf("%d ", ran_arr[i]);
         }
         printf("\nnow begin to sort,");
-        for(i=0;i<SIZE-1;i++)
+        for(i=0;i<sizeof(ran_arr)/sizeof(ran_arr[0])-1;i++)
         {
-            for(j=0, temp=j; j<SIZE-i-1;j++)
+            for(j=i, temp=j; j<SIZE-1;j++)
             {
                 if(ran_arr[temp]<ran_arr[j+1])
                 {
@@ -25,18 +23,15 @@ static void selection()
                 }
             }
             max_temp=ran_arr[temp];
-            ran_arr[i]=max_temp;
             ran_arr[temp] = ran_arr[i];
-
-
+            ran_arr[i]=max_temp;
         }
-        printf("after bubble sort:\n");
+        printf("after selection sort:\n");
         for(i=0;i<SIZE;i++)
         {
             printf("%d ", ran_arr[i]);
         }
         printf("\n");
-
 }
 int main()
 {
@@ -44,27 +39,3 @@ int main()
     exit(0);
 }
 
-// 快速排序 (Quick Sort)
-
-
-
-
-
-
-
-
-// 1.进制转换
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 3.删除法求质数

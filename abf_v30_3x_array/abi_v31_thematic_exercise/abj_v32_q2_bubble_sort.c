@@ -38,3 +38,24 @@ int main(void)
     bubble_sort();
     exit(0);
 }
+
+/*
+1. 冒泡排序 (Bubble Sort) by grok
+原理: 相邻元素两两比较，大的往后冒泡，每轮确定一个最大值放在数组末尾。
+时间复杂度: 平均和最坏 O(n²)，最好 O(n)。空间复杂度: O(1)。 特点: 简单，稳定排序。
+void bubbleSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int swapped = 0; // 优化：记录是否发生交换
+        for (int j = 0; j < n - 1 - i; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // 交换
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                swapped = 1;
+            }
+        }
+        if (!swapped) break; // 若无交换，数组已有序
+    }
+}
+*/
