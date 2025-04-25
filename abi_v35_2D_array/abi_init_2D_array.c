@@ -41,8 +41,7 @@ int main()
     };
     printf("size of arr_three_three = %ld\n", sizeof(arr_three_three));
     int rows = sizeof(arr_three_three) / sizeof(arr_three_three[0]);  // 总字节数/每行的字节数
-    // 获取列数
-    int cols = sizeof(arr_three_three[0]) / sizeof(arr_three_three[0][0]);  // 每行的字节数/每个元素的字节数
+    int cols=sizeof(arr_three_three[0]) / sizeof(arr_three_three[0][0]);  //列数=每行字节数/每个元素的字节数
 
     printf("arr_three_three[][3] = {  {11, 22, 33},44  }，行数: %d\n", rows);
     printf("arr_three_three[][3] = {  {11, 22, 33},44  }，列数: %d\n", cols);
@@ -63,17 +62,16 @@ arr_three_three[1][0]=44,--->0x7ffdc71edb9c  arr_three_three[1][1]=0, --->0x7ffd
 0x9c + 0x4 = 0xa0
 */
     printf("arrName add:arr_three_three->%p\n", arr_three_three);
+
+    printf("\n out of col range:\n");
+    for(i=0;i<cols;i++)
+    {
+        for(j=0;j<rows;j++)
+        {
+            printf("arr_three_three[%d][%d]=%d           ", i,j,arr_three_three[i][j]);
+        }
+        printf("\n");
+    }
+
     exit(0);
 }
-// static void print_array(int arr[M][N])
-// {
-//     int i=0,j=0;
-//     for(i=0;i<M;i++)
-//     {
-//         for(j=0;j<N;j++)
-//         {
-//             printf("arr[%d][%d]=%d                 ", i,j,arr[i][j]);
-//         }
-//         printf("\n");
-//     }
-// }
