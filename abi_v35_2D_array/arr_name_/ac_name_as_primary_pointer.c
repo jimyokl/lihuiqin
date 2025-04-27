@@ -22,6 +22,9 @@ int main()
         {4, 5, 6},
         {7, 8, 9}
     };
+
+    printf("arr[2] in arr[3][3]=%d\n\n", arr[2]); // arr[2] in arr[3][3]=-950937352
+
     printf("arr in %s\t-->%p\n", __func__, arr);
     printf("*arr in %s\t--->%p\n", __func__, *arr);
     printf("sizeof(int*)=%ld\n\n", sizeof(int*));
@@ -34,9 +37,5 @@ int main()
 
 /*
 arr is of type ‘int (*)[3]’
-
-
-
-
 
 */

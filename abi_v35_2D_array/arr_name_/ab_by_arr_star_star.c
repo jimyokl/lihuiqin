@@ -6,7 +6,7 @@
 
 static void print_array(int **arr)
 {   
-    printf("into function %s\n", __func__);
+    printf("into %s, arr->%p, *arr->%p\n", __func__,arr,*arr);//arr->0x7ffc5ca54a30, *arr->0x160000000b
     printf("arr[0][0]=%d\n", arr[0][0]);
     int i=0,j=0;
     for(i=0;i<M;i++)
@@ -18,9 +18,7 @@ static void print_array(int **arr)
         printf("\n");
     }
 }
-
 int main()
-
 {
     int arr_two_three[][3] = 
     {
@@ -42,6 +40,8 @@ int main()
         }
         printf("\n");
     }
+    int **temp=arr_two_three; 
+    printf("temp=%p, *temp=%p\n",temp,*temp); //temp=0x7ffc5ca54a30, *temp=0x160000000b
     printf("\nprint by print_array(int arr[M][N]):\n");
     print_array(arr_two_three);  // 传递二维数组的首地址
 
