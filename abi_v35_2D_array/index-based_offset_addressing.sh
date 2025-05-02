@@ -1,3 +1,17 @@
+C语言中，数组用下标偏移量寻址:
+
+In C, arrays are accessed using index-based offset addressing.
+C uses index offsets to compute the address of array elements.
+Array elements in C are accessed via pointer arithmetic using index offsets.
+In C, array indexing is equivalent to pointer offset addressing.
+
+
+例如：
+In C, accessing `arr[i]` is equivalent to `*(arr + i)`, which uses index offset addressing.
+C relies on pointer arithmetic for array indexing, using the offset from the base address.
+
+
+
 二维数组a[2][3]，用a[2][0]可以得到a[1][1]的值吗？
 
 2行3列的数组，内存中按行优先存储

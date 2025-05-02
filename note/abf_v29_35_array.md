@@ -110,6 +110,57 @@
    int (*)[2][3]看起来像指向“整个二维数组”(int[2][3])的指针，这样的声明不符合语法规则，不能有一个指向整个数组的指针，
 
 8、
+     右值 = 纯粹的值（value），不对应具体内存地址（或不能被直接修改）
+     左值（lvalue, "locator value"）= 能够代表一块内存地址的东西。你可以对它取地址（用 &），或者在赋值语句左边使用它（如果它
+   是可修改的左值）。
+            术语	                        含义
+     modifiable lvalue	            可以被修改的左值，如变量a
+   non-modifiable lvalue	    不能赋值但可取地址的左值，如数组名
+
+9、[] 操作符
+  一、
+    []是语法糖，a[b] 等价于 *(a + b)。因此 arr[i][j] 相当于 *(*(arr + i) + j)
+  二、
+    C的语法糖相对较少，因为 C 是一门偏底层、简洁的语言。
+    常见的 C 语言语法糖包括：[] 数组访问、-> 成员访问、a += b 这样的简写操作等。
+
+
+10、动态分配内存，连续，
+  一、
+    int* data = (int*)malloc(rows * cols * sizeof(int));
+    int** arr = (int**)malloc(rows * sizeof(int*));
+    for (int i = 0; i < rows; i++)
+        arr[i] = data + i * cols;
+  二、
+    int rows = 3, cols = 4;
+    int (*arr)[cols]; // 指向数组的指针
+    
+    arr = malloc(rows * sizeof(*arr));// 一次性分配所有内存
+    
+    for (int i = 0; i < rows; i++) // 使用数组
+        for (int j = 0; j < cols; j++) 
+            arr[i][j] = i * cols + j;
+  三、
+    int rows = 3, cols = 4;
+    int **arr;
+    
+    arr = (int **)malloc(rows * sizeof(int *) + rows * cols * sizeof(int)); // 1. 分配行指针数组和所有数据内存
+    
+    int *data = (int *)(arr + rows);  // 数据区域开始位置 // 2. 设置行指针指向数据区域
+    for (int i = 0; i < rows; i++) 
+        arr[i] = data + i * cols;
+    
+    for (int i = 0; i < rows; i++)    // 3. 使用二维数组
+        for (int j = 0; j < cols; j++) 
+
+    +---------+---------+---------+---------+---------+---------+---------+
+    | arr[0]  | arr[1]  | arr[2]  | data[0] | data[1] | ...     | data[11]|
+    +---------+---------+---------+---------+---------+---------+---------+
+    ^         ^         ^         ^
+    |         |         |         |
+    arr       arr+1     arr+2     data (arr+rows)
+
+10、
     //warn: passing argument 1 of ‘print2DArray’ from incompatible pointer type [Wincompatible -pointer-types]
 
     //error: j of arr[i][j], subscripted value is neither array nor pointer nor vector
