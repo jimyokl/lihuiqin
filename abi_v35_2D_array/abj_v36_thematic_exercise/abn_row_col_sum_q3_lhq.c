@@ -5,7 +5,7 @@ static void printArr();
 static void sum(int **arr, int extra_row, int extra_col)
 {
     int i,j;
-    printf("\nnow in function: %s\n", __func__);
+    printf("\nnow in function: %s, before accumulation:\n", __func__);
     printArr(arr, extra_row, extra_col); printf("\n");
     for(i=0;i<extra_row-1;i++)
     {
@@ -16,6 +16,7 @@ static void sum(int **arr, int extra_row, int extra_col)
             arr[i][extra_col-1]= arr[i][extra_col-1]+ arr[i][j];
         }
     }
+    printf("after accumulation:\n");
     printArr(arr, extra_row, extra_col);
     printf("\nleave function: %s\n", __func__);
     return;
@@ -35,7 +36,7 @@ int main()
     {
         for(j=0;j<col_n;j++)
         {
-            arr[i][j]=i*i+j*j+60;
+            arr[i][j]=i*i+j*j+0;
         }
     }
     printArr(arr, extra_row, extra_col);
