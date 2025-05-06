@@ -6,7 +6,7 @@ static void free_mem(int **matrix, int row);
 
 static int ** matrix_product(int **three_two, int **two_three, int row, int col)
 {
-    int i,j;
+    int i,j,k;
     int **result=(int **)malloc( row*sizeof(int*) );
     for(i=0;i<row;i++)
         result[i]=(int*)malloc( col*sizeof(int) );
@@ -16,16 +16,16 @@ static int ** matrix_product(int **three_two, int **two_three, int row, int col)
         for(j=0;j<col;j++)
             result[i][j]=0;
     }
-
     for(i=0;i<row;i++)
     {
-        for(j=0;j<col;i++)
-        result[i][j]= result[i][j] +three_two[i][j]*two_three[j][i];
+        for(j=0;j<col;j++)
+        {
+            for(k=0;k<2;k++)
+               result[i][j] = result[i][j] + three_two[i][k]*two_three[k][j];
+        }
     }
-
     return result;
 }
-
 int main()
 {
     int i, row_n_3_2=3, col_n_3_2=2, row_n_2_3=2, col_n_2_3=3;
@@ -41,6 +41,8 @@ int main()
     init_matrix(two_three, row_n_2_3, col_n_2_3);
 
     int **product=matrix_product(three_two, two_three, row_n_3_2, col_n_2_3);
+    printf("product of two matrix:\n");
+    print_matrix(product, row_n_3_2, col_n_2_3);
 
     free_mem(three_two, row_n_3_2);
     free_mem(two_three, row_n_2_3);
@@ -81,7 +83,7 @@ static void print_matrix(int **matrix, int row, int column)
     for (i = 0; i < row; i++)
     {
         for (j = 0; j < column; j++)
-            printf("%d ", matrix[i][j]);
+            printf("%3d ", matrix[i][j]);
         printf("\n");
     }
 }
