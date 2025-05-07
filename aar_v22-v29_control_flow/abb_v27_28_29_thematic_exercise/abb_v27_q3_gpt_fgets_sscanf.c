@@ -1,9 +1,10 @@
-#include <stdio.h>
+#include <stdio.h>     // 输入%d个数字，偶数%d个，奇数%d个
 #include <stdlib.h>
 #include <string.h>
 void quiz_two()
 {
-    char input[100]; int num=0,sum_even=0, sum_odd=0,count_even=0,count_odd=0;double avg_even=0.0,avg_odd=0.0;
+    char input[100]; int num=0,sum_even=0, sum_odd=0,count_even=0,count_odd=0;
+    double avg_even=0.0,avg_odd=0.0;
     while(1)
     {
         printf("***********请每次输入一个数，输入这个数字后，按回车确认输入。***********\n");
