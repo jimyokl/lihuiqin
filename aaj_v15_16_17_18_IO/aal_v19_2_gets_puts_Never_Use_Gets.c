@@ -4,19 +4,18 @@
 #define STRSIZE_overrun 2
 
 //gets的字符数组可能很小，但是stdin输入了很多字符，gets会把stdin的字符全部读取到字符数组中，这样就会造成缓冲区溢出。
-//已经越界，如果内存空间受保护，程序会崩溃，如果没有受保护，会覆盖其他内存空间，造成程序错误。
+//越界--如果内存空间受保护，程序会崩溃;如果没有受保护，会覆盖其他内存空间，造成程序错误。
 
 //会将所有 input 从 STDIN 复制到缓冲区，而不检查大小。这允许用户提供大于缓冲区大小的字符串，从而导致溢出情况。
 
-// gets()
-// DESCRIPTION
-// Never use this function.
-// it is impossible to tell without knowing the data in advance how many characters gets() will read, and because gets() will continue to store characters past the end of the buffer, 
+// gets() --- Never use this function.  --- Use fgets() instead ---
+// it is impossible to tell without knowing the data in advance how many characters gets() will read, 
+// and because gets() will continue to store characters past the end of the buffer, 
 // it is extremely dangerous to use. 
-// It has been used to break computer security. Use fgets() instead.
+// It has been used to break computer security. 
 
-// gets()  reads  a line from stdin into the buffer pointed to by s until either a terminating newline 
-// or EOF, which it replaces with a null byte ('\0').  
+// gets()  reads a line from stdin into the buffer pointed to by s until 
+// either a terminating newline or EOF, which it replaces with a null byte ('\0').  
 // No check for buffer overrun is performed (see BUGS below).
 
 int main()
