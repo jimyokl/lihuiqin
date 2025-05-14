@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -I./include
+CFLAGS = -Wall -Wextra -g -std=c11 -I./include
 LDFLAGS = -lm
 
 # 查找所有 .c 文件
