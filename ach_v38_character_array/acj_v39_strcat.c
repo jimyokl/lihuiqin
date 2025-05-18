@@ -24,3 +24,17 @@ int main()
 
     exit(0);
 }
+
+
+[System.Environment]::SetEnvironmentVariable
+
+("Path", `
+    
+  [Microsoft.Win32.Registry]::GetValue
+    (
+      "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment", 
+      "Path",
+       ""
+    ),
+
+"Process")
