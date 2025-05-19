@@ -1,9 +1,5 @@
 CC = gcc
-<<<<<<< HEAD
 CFLAGS = -Wall -Wextra -g -std=c11 -I./include
-=======
-CFLAGS = -Wall -Wextra -g -I./include
->>>>>>> 481dfce (feng xi nan li may18 night fseek generic_file_llseek SYSCALL_DEFINE3(lseek vfs_llseek)
 LDFLAGS = -lm
 
 # 查找所有 .c 文件
