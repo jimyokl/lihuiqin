@@ -211,7 +211,7 @@ int get_chrome_aes_key(unsigned char *out_key, int *out_key_len)  // ===== ËØªÂè
     snprintf(local_app_data, MAX_PATH, "/home/yan");
     //snprintf(local_state_path, MAX_PATH, "%s/may/chrome_cookie/tmp/local_State", local_app_data);
     //directive output may be truncated writing 34 bytes into a region of size between 1 and 260 [-Wformat-truncation=]
-    char* local_state_str = "/may/chrome_cookie/tmp/local_State";
+    char* local_state_str = "lihuiqin/lihuiqin/zab_file_IO/yab_extract_chrome_cookie";
     size_t local_state_path_len = strlen(local_app_data) + strlen(local_state_str) + 1;
     snprintf(local_state_path, local_state_path_len, "%s%s", local_app_data, local_state_str);
     fp = fopen(local_state_path, "rb");
