@@ -13,7 +13,7 @@ int main() {
     snprintf(buffer + len, sizeof(buffer) - len, "World! Number: %d", 42);
 
     printf("%s\n", buffer);  // 输出：Hello, World! Number: 42
-    printf("%s\n", buffer+len);  // 输出：
+    printf("%s\n", buffer+1);  // 输出：
 
     return 0;
 }
