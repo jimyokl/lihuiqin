@@ -6,13 +6,14 @@ int main()
     char scanf_str[N] = {'a', 'a', 'a'};
     
     printf("please input one string:\n");
-    scanf("%s", scanf_str);
+    scanf("%s", scanf_str);                     // 记得清空缓冲区
     printf("%s\n", scanf_str);
 
+    while(getchar() != '\n'); // 清空输入缓冲区，直到遇到换行符
 
     char one_str[N], two_str[N], three_str[N];
     printf("\nplease input three strings:\n");
-    scanf("%s%s%s", one_str, two_str, three_str);
+    scanf("%s%s%s", one_str, two_str, three_str);   //
 
     printf("\nthree strings you input are:\n");
     printf("%s\n%s\n%s\n", one_str, two_str, three_str);
@@ -48,17 +49,6 @@ or even zero, in the event of an early matching failure.
     如果用户输入的是一个整数, 比如42, result会是1(表示成功赋值了一个变量).
     如果用户输入的是 hello，因为格式不匹配（不是整数），result 会是0.
     如果遇到文件结束或错误（比如按了 Ctrl+D），result 会是 EOF。
-
-
-
-    
-
-
-
-
-
-
-
 
 s*/
 
