@@ -22,17 +22,17 @@ int aes_gcm_decrypt(const unsigned char *key, int key_len,
 int get_chrome_aes_key(unsigned char *out_key, int *out_key_len); // ===== 读取 Local State 文件，提取和解密 AES key    
 int copy_file(const char *src, const char *dest); // ===== 复制文件 =====                                              
 int main() {
-    char local_app_data[MAX_PATH];
-    char cookies_path[MAX_PATH];
-    char temp_cookies_path[MAX_PATH];
+    char local_app_data[MAX_PATH] = {0}; 
+    char cookies_path[MAX_PATH] = {0}; 
+    char temp_cookies_path[MAX_PATH] = {0};
     char temp_dir[MAX_PATH];
     //if (!GetEnvironmentVariableA("LOCALAPPDATA", local_app_data, MAX_PATH)) {fprintf(stderr, "无法获取 LOCALAPPDATA 环境变量\n"); return 1;}
-    snprintf(local_app_data, MAX_PATH, "/home/yan");
-    snprintf(cookies_path, MAX_PATH, "%s/may/cookies.db", local_app_data);
+    snprintf(local_app_data, MAX_PATH, "/home/yan/lihuiqin/lihuiqin/zab_file_IO");
+    snprintf(cookies_path, MAX_PATH-strlen(cookies_path)-1, "%s/yab_extract_chrome_cookie/bak/cookies.db", local_app_data);
     //if(!GetEnvironmentVariableA("TEMP",temp_dir,MAX_PATH)){fprintf(stderr,"can't get mingw TEMP\n");return 1;}
-    snprintf(temp_dir, MAX_PATH, "/home/yan");
-    snprintf(temp_cookies_path, MAX_PATH, "%s/may/chrome_cookie/tmp/chrome_cookies_copy.db", temp_dir);
-    printf("Cookies db path:%s\n", temp_cookies_path); //D:\apps\msys64\tmp\chrome_cookies_copy.db
+    snprintf(temp_dir, MAX_PATH, "/home/yan/lihuiqin/lihuiqin/zab_file_IO");
+    snprintf(temp_cookies_path, MAX_PATH-strlen(temp_cookies_path)-1, "%s/cookies_.db", temp_dir);
+    printf("Cookies db path:%s\n", temp_cookies_path); //
     if (!copy_file(cookies_path, temp_cookies_path)) {
         fprintf(stderr, "unable copy Cookies db. pls ensure Chrome closed.\n"); return 1;
     }
@@ -200,7 +200,7 @@ end:
 }  */
 int get_chrome_aes_key(unsigned char *out_key, int *out_key_len)  // ===== 读取 Local State 文件，提取和解密 AES key =====
 {
-    char local_app_data[MAX_PATH];
+    char local_app_data[MAX_PATH] = {0};
     char local_state_path[MAX_PATH];
     FILE *fp;
     long file_size;
@@ -208,10 +208,13 @@ int get_chrome_aes_key(unsigned char *out_key, int *out_key_len)  // ===== 读�
     char *p_start, *p_end;
     char base64_key[512] = {0};       // int base64_len;
     // if (!GetEnvironmentVariableA("LOCALAPPDATA", local_app_data, MAX_PATH)) {fprintf(stderr, "无法获取 LOCALAPPDATA 环境变量\n"); return 0;}
-    snprintf(local_app_data, MAX_PATH, "/home/yan");
+
+    //size_t local_app_data_len = strlen(local_app_data);
+    snprintf(local_app_data, MAX_PATH, "/home/yan/lihuiqin/lihuiqin/zab_file_IO");
+    
     //snprintf(local_state_path, MAX_PATH, "%s/may/chrome_cookie/tmp/local_State", local_app_data);
     //directive output may be truncated writing 34 bytes into a region of size between 1 and 260 [-Wformat-truncation=]
-    char* local_state_str = "/may/chrome_cookie/tmp/local_State";
+    char* local_state_str = "/yab_extract_chrome_cookie/bak/local_State";
     size_t local_state_path_len = strlen(local_app_data) + strlen(local_state_str) + 1;
     snprintf(local_state_path, local_state_path_len, "%s%s", local_app_data, local_state_str);
     fp = fopen(local_state_path, "rb");
@@ -236,6 +239,9 @@ int get_chrome_aes_key(unsigned char *out_key, int *out_key_len)  // ===== 读�
     fread(json_buf, 1, file_size, fp);
     fclose(fp);
     json_buf[file_size] = '\0';
+
+    //printf("\n output json_buf in local_state:\n");
+    //puts(json_buf); 
 
     // 简单字符串查找 "encrypted_key":"base64=="
 	printf("run strstr to find the string:%s\n", "\"encrypted_key\":\"");
