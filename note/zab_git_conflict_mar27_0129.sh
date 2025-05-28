@@ -1,5 +1,31 @@
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+零:-------------------------------------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ask: git diff --cached意思--------------------------------------------------
+                意思是查看已暂存(staged)但尚未提交的更改
+Git中,文件的更改可以处于以下几个状态:
+    工作区(Working Directory):        你当前编辑的文件状态.
+    暂存区(Staging Area,也叫 Index):  你用 git add 添加的内容，将被包含在下一次提交中.
+    本地仓库(Local Repository):       你已经用 git commit 提交的内容.
+
+git diff --cached 显示“暂存区”与“最新一次提交”的差异。会告诉你：“如果我现在运行 git commit，会提交哪些改动？”
+
+# 修改了 file1.txt 和 file2.txt
+git add file1.txt  # 暂存 file1.txt
+git diff --cached  # 只显示 file1.txt 的改动
+git diff           # 只显示 file2.txt（未暂存）的改动
+
+| 命令                 | 比较内容                               |
+| ------------------- | -------------------------------------  |
+| `git diff`          | 工作区 vs 暂存区（未暂存的更改）         |
+| `git diff --cached` | 暂存区 vs 上一次提交（即将提交的更改）    |
+| `git diff HEAD`     | 工作区 vs 上一次提交（包括已暂存+未暂存） |
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+一:~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~mar27 git conflict ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 yan@DESKTOP-MGFDE09:~/lihuiqin$ git pull origin main
 error: cannot pull with rebase: You have unstaged changes.
 error: please commit or stash them.
@@ -39,12 +65,7 @@ hint: You can instead skip this commit: run "git rebase --skip".
 hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
 Could not apply 70eddf4... e320 at feng xi nan li
 yan@DESKTOP-MGFDE09:~/lihuiqin$ cd
-yan@DESKTOP-MGFDE09:~$ vim .git
-.git/       .gitconfig
-yan@DESKTOP-MGFDE09:~$ vim .git
-.git/       .gitconfig
 yan@DESKTOP-MGFDE09:~$ vim .gitconfig
-yan@DESKTOP-MGFDE09:~$
 yan@DESKTOP-MGFDE09:~$ cd lihuiqin/
 yan@DESKTOP-MGFDE09:~/lihuiqin$ ls
 README.md    aab_dont_forget_head_file.c          aae_v5_data_type.c        aag_v9_10_2_global_var.c                                      aaj_v15_16_17_18_IO      deepseek
@@ -136,7 +157,6 @@ yan@DESKTOP-MGFDE09:~/lihuiqin$ git rebase --abort
 yan@DESKTOP-MGFDE09:~/lihuiqin$ git rebase --continue
 fatal: No rebase in progress?
 
-
 yan@DESKTOP-MGFDE09:~/lihuiqin$ git pull origin main
 From https://github.com/jimyokl/lihuiqin
  * branch            main       -> FETCH_HEAD
@@ -188,7 +208,7 @@ yan@DESKTOP-MGFDE09:~/lihuiqin$ git rebase --continue
  create mode 100755 aap_2_formatted_IO_test/a.out
  create mode 100644 aap_2_formatted_IO_test/aap_2_quart_water_quiz.c
 Successfully rebased and updated refs/heads/main.
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
 
 pull（rebase）成功后， 把之前~目录里面的文件改名，复制到lihuiqin文件夹，再push到远端
 
@@ -212,9 +232,9 @@ To https://github.com/jimyokl/lihuiqin.git
 Branch 'main' set up to track remote branch 'main' from 'origin'.
  
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------may23--fengxinanli e320本地删除了1文件,增加了2个todel------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+二: --------------------------------------------------------------------------------------------------------------------------
+------------------------------------------may23--fengxinanli e320本地删除了1文件,增加了2个todel--------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
 yan@DESKTOP-MGFDE09:~/lihuiqin$ git status
 On branch main
 Your branch is up to date with 'origin/main'.
@@ -399,7 +419,6 @@ git pull
 这会把远程分支的最新更改合并进来。如果没有冲突，下一步就可以恢复你的改动。
 
 
-
 第三步：恢复你刚才的改动
 git stash pop
 这会把刚才 stash 的内容重新应用回来。如果有冲突，Git 会提示你解决。
@@ -452,7 +471,6 @@ git restore zab_file_IO/zab_file_ptr_offset.js
 是还原工作区的文件内容，把文件恢复成当前分支 HEAD（也就是你本地最新同步的远程版本）的状态。
 
 
-
 Unmerged paths:
   (use "git restore --staged <file>..." to unstage)
   (use "git add/rm <file>..." as appropriate to mark resolution)
@@ -485,4 +503,65 @@ git commit -m "Resolved conflict by keeping remote version of zab_file_ptr_offse
 查看你的 stash（可选）
 如果你想确认刚才暂存的内容，还可以先运行：
 git stash list ，然后drop掉 stash@{0}
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+三: --------------------------------------------------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~git log-------0000000000--------------------------git log --oneline --graph-------------
+--------------------------------------~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+yan@DESKTOP-NID01S0:~/lihuiqin/lihuiqin$ git log
+commit ba06ca008420837f5561d489b74c4bef0770c131 (HEAD -> main, origin/main, origin/HEAD)
+Author: yan <yannetwork@qq.com>
+Date:   Tue May 27 21:09:44 2025 +0800
+
+    may27 done
+
+commit ea22a475791d7df6bca0a1c1646f03bfbe5723fb
+Author: boox <yannetwork@qq.com>
+Date:   Tue May 27 02:53:55 2025 +0800
+
+    may26 night fengxinanli
+
+commit 9090f109d8d6e6193bc4411cf8e5ed46fd7d95c5
+Author: boox <yannetwork@qq.com>
+Date:   Tue May 27 02:52:43 2025 +0800
+
+    may26 night fengxinanli
+
+commit f635580929acb1b3d680fe2b1b490671af8012c7
+Author: yan <yannetwork@qq.com>
+Date:   Mon May 26 20:45:53 2025 +0800
+
+    may26 done
+
+----------------------------------------------git log --oneline --graph ----------------------------------------------------
+
+yan@DESKTOP-NID01S0:~/lihuiqin/lihuiqin$ git log --oneline --graph
+* ba06ca0 (HEAD -> main, origin/main, origin/HEAD) may27 done
+* ea22a47 may26 night fengxinanli
+* 9090f10 may26 night fengxinanli
+* f635580 may26 done
+* 44776c3 may25 done
+* 9247e4b may23 night fengxinanli git confilict
+* 29b1895 may23 done
+* 2b8d864 may22 done
+* 374b288 may21 done
+* 5475e51 may20night must_set_pos_() feng xi nan li
+* 7aaaece may20 done
+* 8d58c79 may19 night feng xi nan li, mod zab_file_ptr_offset_feng_xi_nan_li.js
+* 744151b may19 done
+* 0a775c2 may18night 2 19morning feng xi nan li_2
+* b7b5bf3 may18night 2 19morning feng xi nan li
+* 0e1c2a9 feng xi nan li may18 night fseek generic_file_llseek SYSCALL_DEFINE3(lseek vfs_llseek
+* a4d0f73 may18 done
+* f49d960 may18 17:23 bj time sync
+* 9e1a0c2 may16 done
+* 4b90a2f may14 done
+* c6b3a87 may13 end
+* 59a424d may10 done
+* 6d945bc may10 some change feng xi nan li before
+* 12f65d2 may9 done
+* 66ea690 may7 done
+
+
+
