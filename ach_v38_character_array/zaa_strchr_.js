@@ -101,8 +101,6 @@ p_end = strchr(p_start, '"');
 * 编码格式：你之前是先做了 Base64 解码，再通过 `decrypt_aes_key(...)` 得到的结果，
 这通常是从 Chrome、Edge 等浏览器中提取的加密 AES 密钥，这种用法非常常见。
 
----
-
 ### 🔐 AES 密钥特点（你对比一下）：
 
 | 属性        | 你这段密钥是否满足   |
@@ -112,20 +110,15 @@ p_end = strchr(p_start, '"');
 | 看起来不重复    | ✅ 是         |
 | 不可读文本     | ✅ 是         |
 
----
-
 ### ✅ 判断标准：
 
 你已经完成了解密、打印步骤，如果你下一步拿这个 `out_key` 去解密 Chrome Cookies、Login Data、Tokens 等内容，
 就可以检验它是否有效（比如尝试 AES-GCM 解密 payload，如果能成功并通过 tag 校验，那就 100% 是正确密钥）。
 
----
-
 ### 🧠 小建议：
 
 如果你打算大量处理 AES 密钥和密文，可以写一个 `print_hex(const unsigned char *data, size_t len)` 函数，提升可读性。例如：
 
-```c
 void print_hex(const unsigned char *data, size_t len) {
     for (size_t i = 0; i < len; ++i) {
         printf("%02X ", data[i]);
